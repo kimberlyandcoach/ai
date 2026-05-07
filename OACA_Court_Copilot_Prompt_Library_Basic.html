@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OACA / Court Operations — Copilot Prompt Library (Basic)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 40px auto;
+      line-height: 1.5;
+      padding: 0 14px;
+    }
+    h1 { margin-bottom: 6px; }
+    .sub { color: #444; margin-top: 0; }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 18px 0 22px;
+      padding: 12px;
+      background: #f3f6fb;
+      border: 1px solid #d7e1f2;
+      border-radius: 8px;
+    }
+    .toolbar label { font-size: 13px; color:#333; }
+    .toolbar input, .toolbar select {
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #c9c9c9;
+      border-radius: 6px;
+    }
+    .toolbar .count { margin-left: auto; font-size: 13px; color:#333; }
+    .prompt-card {
+      border: 1px solid #d0d0d0;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .card-header {
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .card-header h3 { margin: 0 0 8px; font-size: 18px; }
+    pre {
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      padding: 12px;
+      border-radius: 6px;
+      margin: 8px 0 10px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 2px;
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid #888;
+      background: #ffffff;
+    }
+    button:hover { background:#f1f1f1; }
+    .copied {
+      color: #1a7f37;
+      font-size: 13px;
+      margin-left: 10px;
+    }
+    .badges { display:flex; gap:6px; flex-wrap: wrap; justify-content: flex-end; }
+    .badge {
+      display:inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid #cfcfcf;
+      background: #fff;
+      color: #222;
+    }
+    .badge-quick { background:#f2fff2; border-color:#bfe8bf; }
+    .badge-complex { background:#eef6ff; border-color:#b7d6ff; }
+    footer { margin-top: 26px; font-size: 12px; color:#444; }
+    .note { background:#fff8e6; border:1px solid #f0d9a6; padding:10px 12px; border-radius:8px; margin: 14px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>OACA / Court Operations — Copilot Prompt Library</h1>
+  <p class="sub">Click <strong>Copy Prompt</strong>, then paste directly into Copilot. Use Search, Category, and Complexity to find the right prompt quickly.</p>
+  <div class="note"><strong>Designed for Copilot Basic:</strong> Each prompt works by pasting your text/data into the placeholders (no special plugins, agents, or premium connectors required).</div>
+
+  <div class="toolbar">
+    <div>
+      <label for="searchBox"><strong>Search</strong></label><br />
+      <input id="searchBox" type="text" placeholder="Search titles or prompt text…" oninput="filterPrompts()" />
+    </div>
+    <div>
+      <label for="categorySelect"><strong>Category</strong></label><br />
+      <select id="categorySelect" onchange="filterPrompts()">
+        <option value="All">All</option>
+        <option value="Court Administration">Court Administration</option>
+<option value="Clerk &amp; Records">Clerk &amp; Records</option>
+<option value="Caseflow &amp; Calendaring">Caseflow &amp; Calendaring</option>
+<option value="Policy &amp; Compliance">Policy &amp; Compliance</option>
+<option value="HR &amp; People">HR &amp; People</option>
+<option value="IT &amp; Security">IT &amp; Security</option>
+<option value="Finance &amp; Procurement">Finance &amp; Procurement</option>
+<option value="Public Service &amp; Communications">Public Service &amp; Communications</option>
+<option value="Training &amp; SOPs">Training &amp; SOPs</option>
+<option value="Reporting &amp; Analytics">Reporting &amp; Analytics</option>
+      </select>
+    </div>
+    <div>
+      <label for="complexitySelect"><strong>Complexity</strong></label><br />
+      <select id="complexitySelect" onchange="filterPrompts()">
+        <option value="All">All</option>
+        <option value="Complex">Complex</option>
+        <option value="Quick">Quick</option>
+      </select>
+    </div>
+    <div class="count" id="countLabel"></div>
+  </div>
+
+<div class="prompt-card" data-category="Court Administration" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Executive Weekly Court Operations Brief</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt1">You are my court operations analyst. Using the notes below, produce:
+(1) a 6-bullet executive summary,
+(2) top 5 risks or blockers with mitigation ideas,
+(3) decisions needed this week (who decides + by when), and
+(4) a prioritized action list with owners and due dates.
+Notes: [paste notes]</pre>
+  <button onclick="copyPrompt('prompt1','status1')">Copy Prompt</button>
+  <span id="status1" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Complex">
+  <div class="card-header">
+    <h3>30/60/90-Day Plan for New Administrator</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt2">Act as my onboarding coach for a Court Administrator. Build a 30/60/90-day plan that includes:
+(1) key relationships to establish (internal/external),
+(2) quick wins in the first 30 days,
+(3) process reviews to schedule (caseflow, finance, HR, IT, security),
+(4) metrics to start tracking, and
+(5) a weekly cadence (meetings + artifacts).
+Context about the court and role: [paste]</pre>
+  <button onclick="copyPrompt('prompt2','status2')">Copy Prompt</button>
+  <span id="status2" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Leadership Meeting Agenda + Pre-Reads</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt3">Create a 60-minute leadership meeting agenda with timeboxes. Then list:
+(1) the 3–5 pre-read items needed,
+(2) the decisions expected, and
+(3) the questions leaders should be prepared to answer.
+Topics and constraints: [paste]</pre>
+  <button onclick="copyPrompt('prompt3','status3')">Copy Prompt</button>
+  <span id="status3" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Courtwide Change Announcement (Internal)</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt4">Draft an internal announcement about this change. Include:
+(1) what is changing and why,
+(2) who is impacted (by role),
+(3) what each group must do next,
+(4) key dates,
+(5) where to ask questions.
+Keep it concise and calm. Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt4','status4')">Copy Prompt</button>
+  <span id="status4" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Strategic Initiative One-Pager</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt5">Create a 1-page one-pager for this court initiative. Include:
+(1) problem statement,
+(2) goals and success measures,
+(3) scope (in/out),
+(4) approach and timeline,
+(5) staffing/roles,
+(6) risks and assumptions,
+(7) decision points.
+Initiative details: [paste]</pre>
+  <button onclick="copyPrompt('prompt5','status5')">Copy Prompt</button>
+  <span id="status5" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Policy Memo Builder (Decision-Ready)</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt6">Convert the information below into a decision-ready policy memo:
+(1) Background and current state,
+(2) Options (at least 3) with pros/cons,
+(3) Legal/compliance considerations to confirm,
+(4) Cost/operational impacts,
+(5) Recommended option with rationale,
+(6) Implementation steps + communications.
+Inputs: [paste]</pre>
+  <button onclick="copyPrompt('prompt6','status6')">Copy Prompt</button>
+  <span id="status6" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Stakeholder Map for a Court Project</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt7">Create a stakeholder map for this project. Output a table with:
+Stakeholder group | interest | influence | concerns | engagement approach | key message.
+Then provide a 2-week engagement plan with who contacts whom.
+Project context: [paste]</pre>
+  <button onclick="copyPrompt('prompt7','status7')">Copy Prompt</button>
+  <span id="status7" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Meeting Notes → Action Register</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt8">Turn these meeting notes into an action register with:
+(1) decisions,
+(2) action items (owner, due date, dependency),
+(3) open questions,
+(4) follow-up message draft for the team.
+Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt8','status8')">Copy Prompt</button>
+  <span id="status8" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Court Services KPI Starter Set</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt9">Define a starter KPI set for court administration. For each KPI provide:
+(1) definition,
+(2) formula,
+(3) data source,
+(4) reporting frequency,
+(5) who owns it,
+(6) what “good” looks like.
+Court type and priorities: [paste]</pre>
+  <button onclick="copyPrompt('prompt9','status9')">Copy Prompt</button>
+  <span id="status9" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Court Administration" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Quarterly Priorities OKR Draft</h3>
+    <div class="badges"><span class="badge">Court Administration</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt10">Create quarterly OKRs for a court operations team. Provide:
+(1) 3 Objectives,
+(2) 3–5 Key Results per objective,
+(3) initiatives that drive the KRs,
+(4) owners and checkpoints.
+Constraints and goals: [paste]</pre>
+  <button onclick="copyPrompt('prompt10','status10')">Copy Prompt</button>
+  <span id="status10" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Public Records Request Triage</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt11">You are my records-management assistant. Given this public records request, produce:
+(1) clarification questions,
+(2) likely record sources/owners,
+(3) a retrieval plan with steps and timeline,
+(4) redaction categories to watch for (privacy/security), and
+(5) a draft acknowledgment email.
+Request text: [paste]</pre>
+  <button onclick="copyPrompt('prompt11','status11')">Copy Prompt</button>
+  <span id="status11" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Redaction Checklist (PII &amp; Sensitive Data)</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt12">Create a practical redaction checklist for staff handling records. Include:
+(1) common PII items,
+(2) court-specific sensitive items (minors, protected addresses, etc.),
+(3) double-check steps,
+(4) how to document redactions for audit.
+Context/policy excerpt: [paste]</pre>
+  <button onclick="copyPrompt('prompt12','status12')">Copy Prompt</button>
+  <span id="status12" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Records Retention Schedule Summary</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt13">Summarize this retention schedule into a quick-reference guide for staff.
+Include: record type, minimum retention, trigger event, disposition method, and who approves destruction.
+Retention schedule text: [paste]</pre>
+  <button onclick="copyPrompt('prompt13','status13')">Copy Prompt</button>
+  <span id="status13" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Clerk Counter Script (Difficult Conversation)</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt14">Write a short counter-service script for this scenario. Include:
+(1) an opening that shows empathy,
+(2) 3 boundary statements (what we can/can’t do),
+(3) the next steps for the customer,
+(4) a de-escalation line if emotions rise.
+Scenario: [paste]</pre>
+  <button onclick="copyPrompt('prompt14','status14')">Copy Prompt</button>
+  <span id="status14" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Filing Rejection Notice (Clear + Helpful)</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt15">Draft a filing rejection notice that is clear and non-accusatory. Include:
+(1) what was submitted,
+(2) why it can’t be accepted (cite rule placeholder),
+(3) how to correct it,
+(4) deadline/next steps,
+(5) contact info.
+Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt15','status15')">Copy Prompt</button>
+  <span id="status15" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Mailroom/Intake Workflow Improvement</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt16">Analyze this current intake workflow and propose improvements. Provide:
+(1) pain points and root causes,
+(2) a revised step-by-step workflow,
+(3) roles/hand-offs,
+(4) controls to prevent errors,
+(5) simple metrics to track.
+Current workflow notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt16','status16')">Copy Prompt</button>
+  <span id="status16" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Indexing Standards for Document Types</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt17">Create indexing standards for these document types. For each type, specify:
+(1) naming convention,
+(2) required metadata fields,
+(3) validation rules,
+(4) common errors to avoid,
+(5) examples.
+Document list and current practice: [paste]</pre>
+  <button onclick="copyPrompt('prompt17','status17')">Copy Prompt</button>
+  <span id="status17" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Records Audit Prep Checklist</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt18">Build a checklist to prepare for a records audit. Include:
+(1) documents to gather,
+(2) sampling approach,
+(3) common findings to self-check,
+(4) who to involve,
+(5) timeline.
+Audit scope: [paste]</pre>
+  <button onclick="copyPrompt('prompt18','status18')">Copy Prompt</button>
+  <span id="status18" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Court Order Formatting QA</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt19">Review this draft order text for consistency and formatting. Output:
+(1) a list of issues (citations, dates, names, numbering),
+(2) suggested edits,
+(3) a clean revised version.
+Draft order: [paste]</pre>
+  <button onclick="copyPrompt('prompt19','status19')">Copy Prompt</button>
+  <span id="status19" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Clerk &amp; Records" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Forms Inventory + Simplification Plan</h3>
+    <div class="badges"><span class="badge">Clerk &amp; Records</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt20">From this list of forms, create:
+(1) an inventory table (purpose, audience, owner, last updated),
+(2) duplication/conflict notes,
+(3) a simplification plan (combine/retire/rewrite),
+(4) a maintenance schedule.
+Forms list and notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt20','status20')">Copy Prompt</button>
+  <span id="status20" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Docket Backlog Root-Cause Analysis</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt21">Act as my caseflow analyst. Using these metrics/notes, produce:
+(1) top drivers of backlog,
+(2) bottleneck hypotheses,
+(3) 3 remediation options (low/med/high effort),
+(4) recommended plan with a 30-day pilot,
+(5) metrics to prove improvement.
+Data/notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt21','status21')">Copy Prompt</button>
+  <span id="status21" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Daily Docket Huddle Script</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt22">Write a 10-minute daily docket huddle script. Include:
+(1) quick status questions,
+(2) how to surface conflicts (interpreters, remote links, transport),
+(3) escalation path,
+(4) end-of-huddle recap format.
+Court type and constraints: [paste]</pre>
+  <button onclick="copyPrompt('prompt22','status22')">Copy Prompt</button>
+  <span id="status22" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Hearing Schedule Conflict Resolver</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt23">Given the scheduling constraints below, propose a conflict-free hearing schedule.
+Steps:
+(1) List all constraints you detected.
+(2) Propose a schedule with time blocks.
+(3) Flag remaining conflicts and alternatives.
+Constraints and cases: [paste]</pre>
+  <button onclick="copyPrompt('prompt23','status23')">Copy Prompt</button>
+  <span id="status23" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Continuance Request Summary</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt24">Summarize this continuance request for judicial review. Include:
+(1) requestor and reason,
+(2) parties’ positions if stated,
+(3) procedural posture,
+(4) recommended options (grant/deny/conditions),
+(5) draft entry language placeholders.
+Request text: [paste]</pre>
+  <button onclick="copyPrompt('prompt24','status24')">Copy Prompt</button>
+  <span id="status24" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Remote Hearing Checklist</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt25">Create a remote hearing checklist for staff and participants. Include:
+(1) tech requirements,
+(2) identity verification steps,
+(3) exhibit sharing method,
+(4) contingency plan,
+(5) day-of timeline.
+Court platform and rules: [paste]</pre>
+  <button onclick="copyPrompt('prompt25','status25')">Copy Prompt</button>
+  <span id="status25" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Interpreter Coordination Plan</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt26">Build an interpreter coordination plan from these upcoming hearings. Output:
+(1) schedule by language and time,
+(2) staffing coverage gaps,
+(3) confirmation messages to parties,
+(4) day-of procedures.
+Hearing list: [paste]</pre>
+  <button onclick="copyPrompt('prompt26','status26')">Copy Prompt</button>
+  <span id="status26" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Caseflow SOP: From Filing to Disposition</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt27">Draft a simple SOP describing the workflow from filing to disposition for this case type.
+Include: steps, responsible role, system touchpoints, SLAs/time targets, and common exceptions.
+Case type and current notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt27','status27')">Copy Prompt</button>
+  <span id="status27" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Complex">
+  <div class="card-header">
+    <h3>No-Show Rate Reduction Plan</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt28">Create a plan to reduce no-show rates. Include:
+(1) likely causes,
+(2) interventions (reminders, signage, transportation info),
+(3) an outreach message set (SMS/email/letter),
+(4) a pilot design with success metrics.
+Context and baseline data: [paste]</pre>
+  <button onclick="copyPrompt('prompt28','status28')">Copy Prompt</button>
+  <span id="status28" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Courtroom Staffing Model</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt29">Using the workload info below, propose a staffing model for courtrooms.
+Provide:
+(1) roles needed per session,
+(2) coverage assumptions,
+(3) rotation plan,
+(4) risks and mitigation,
+(5) a one-page summary for leadership.
+Workload inputs: [paste]</pre>
+  <button onclick="copyPrompt('prompt29','status29')">Copy Prompt</button>
+  <span id="status29" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Caseflow &amp; Calendaring" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Calendar Notice Template Pack</h3>
+    <div class="badges"><span class="badge">Caseflow &amp; Calendaring</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt30">Create a template pack for calendar notices: (1) initial notice, (2) reschedule, (3) remote link, (4) cancellation.
+For each template include subject line, plain-language body, and required placeholders.
+Rules/requirements: [paste]</pre>
+  <button onclick="copyPrompt('prompt30','status30')">Copy Prompt</button>
+  <span id="status30" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Local Rule Rewrite (Plain Language)</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt31">Rewrite this local rule or policy section in plain language.
+Include:
+(1) a plain-English summary,
+(2) the step-by-step process,
+(3) common mistakes,
+(4) a short FAQ.
+Text: [paste]</pre>
+  <button onclick="copyPrompt('prompt31','status31')">Copy Prompt</button>
+  <span id="status31" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Compliance Gap Check</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt32">Compare our current practice against the requirements below.
+Output:
+(1) compliant items,
+(2) gaps/noncompliance risks,
+(3) recommended fixes with effort level,
+(4) owners and target dates,
+(5) a short message to stakeholders.
+Requirements + current practice: [paste]</pre>
+  <button onclick="copyPrompt('prompt32','status32')">Copy Prompt</button>
+  <span id="status32" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Records Privacy Notice Draft</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt33">Draft a privacy notice for court services/records.
+Include:
+(1) what data we collect,
+(2) why we collect it,
+(3) who we share with,
+(4) retention,
+(5) security measures (high-level),
+(6) individual rights/contact.
+Inputs/policies: [paste]</pre>
+  <button onclick="copyPrompt('prompt33','status33')">Copy Prompt</button>
+  <span id="status33" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Complex">
+  <div class="card-header">
+    <h3>ADA Accommodation Process</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt34">Create an ADA accommodation request process.
+Deliver:
+(1) intake questions,
+(2) decision workflow and timelines,
+(3) documentation guidance,
+(4) staff responsibilities,
+(5) template communications (approval/denial/need more info).
+Current policy notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt34','status34')">Copy Prompt</button>
+  <span id="status34" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Courtroom Decorum Policy (Public-Facing)</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt35">Draft a public-facing courtroom decorum policy that is respectful and clear.
+Include:
+(1) expected behavior,
+(2) prohibited items/behaviors,
+(3) phone and recording rules,
+(4) accessibility note,
+(5) what happens if rules are violated.
+Court specifics: [paste]</pre>
+  <button onclick="copyPrompt('prompt35','status35')">Copy Prompt</button>
+  <span id="status35" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Data Retention + Disposition Workflow</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt36">Design a retention + disposition workflow for digital records.
+Include:
+(1) triggers for retention clocks,
+(2) review/approval steps,
+(3) legal hold process,
+(4) destruction documentation,
+(5) audit trail requirements.
+Systems and constraints: [paste]</pre>
+  <button onclick="copyPrompt('prompt36','status36')">Copy Prompt</button>
+  <span id="status36" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Policy Rollout Plan</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt37">Build a rollout plan for this new/updated policy. Include:
+(1) audiences,
+(2) training/communications channels,
+(3) job aids to create,
+(4) effective date and transition steps,
+(5) how we will measure adoption.
+Policy summary: [paste]</pre>
+  <button onclick="copyPrompt('prompt37','status37')">Copy Prompt</button>
+  <span id="status37" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Quick">
+  <div class="card-header">
+    <h3>FOIA/Public Records Response Template</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt38">Create a response template for public records requests.
+Include:
+(1) acknowledgment,
+(2) clarification request language,
+(3) cost/time estimate language (placeholders),
+(4) fulfillment message,
+(5) denial/redaction explanation placeholders.
+Applicable rules/policy: [paste]</pre>
+  <button onclick="copyPrompt('prompt38','status38')">Copy Prompt</button>
+  <span id="status38" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Risk Register for Compliance Projects</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt39">Create a risk register for this compliance effort.
+Output a table: risk | likelihood | impact | mitigation | owner | review date.
+Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt39','status39')">Copy Prompt</button>
+  <span id="status39" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Policy &amp; Compliance" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Contract Clause Review Helper</h3>
+    <div class="badges"><span class="badge">Policy &amp; Compliance</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt40">Review this vendor contract excerpt and produce:
+(1) key obligations,
+(2) risky clauses (privacy, indemnity, termination, uptime),
+(3) suggested redlines or negotiation points,
+(4) questions for counsel.
+Contract text: [paste]</pre>
+  <button onclick="copyPrompt('prompt40','status40')">Copy Prompt</button>
+  <span id="status40" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Job Description Refresh</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt41">Rewrite this job description to be clear and outcomes-focused.
+Include:
+(1) mission of the role,
+(2) top 8 responsibilities,
+(3) required vs preferred qualifications,
+(4) 5 measurable success indicators.
+Current JD: [paste]</pre>
+  <button onclick="copyPrompt('prompt41','status41')">Copy Prompt</button>
+  <span id="status41" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Interview Guide + Scorecard</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt42">Create an interview guide and scorecard for this role.
+Deliver:
+(1) 8 behavioral questions mapped to competencies,
+(2) 2 work-sample exercises,
+(3) scoring rubric (1–5) with anchors,
+(4) red flags to watch for.
+Role context: [paste]</pre>
+  <button onclick="copyPrompt('prompt42','status42')">Copy Prompt</button>
+  <span id="status42" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Performance Review Draft</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt43">Using these accomplishments and goals, draft a performance review narrative.
+Include:
+(1) strengths with examples,
+(2) areas to develop,
+(3) impact on team/court goals,
+(4) next-period goals (SMART).
+Inputs: [paste]</pre>
+  <button onclick="copyPrompt('prompt43','status43')">Copy Prompt</button>
+  <span id="status43" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Coaching Plan for Performance Issues</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt44">Create a coaching plan for this performance concern.
+Include:
+(1) specific behaviors and expectations,
+(2) root-cause questions,
+(3) support/training actions,
+(4) check-in cadence,
+(5) success criteria and documentation tips.
+Scenario: [paste]</pre>
+  <button onclick="copyPrompt('prompt44','status44')">Copy Prompt</button>
+  <span id="status44" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Staff Schedule Fairness Check</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt45">Evaluate this proposed staff schedule for fairness and coverage.
+Steps:
+(1) identify constraints (coverage, skills, hours, leave),
+(2) flag inequities or risks,
+(3) propose 2 improved schedules,
+(4) provide a short explanation to share with staff.
+Schedule data: [paste]</pre>
+  <button onclick="copyPrompt('prompt45','status45')">Copy Prompt</button>
+  <span id="status45" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Training Needs Assessment Survey</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt46">Draft a 10-question training needs survey for court staff.
+Include:
+(1) role-based question branching suggestions,
+(2) 2 open-ended questions,
+(3) how to summarize results into priorities.
+Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt46','status46')">Copy Prompt</button>
+  <span id="status46" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Quick">
+  <div class="card-header">
+    <h3>New Hire 2-Week Ramp Plan</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt47">Create a day-by-day ramp plan for a new hire’s first 2 weeks.
+Include: systems access, shadowing, practice tasks, key contacts, and quick checkpoints.
+Role and environment: [paste]</pre>
+  <button onclick="copyPrompt('prompt47','status47')">Copy Prompt</button>
+  <span id="status47" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Conflict Resolution Script + Follow-Up</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt48">Help me prepare for a difficult staff conversation. Provide:
+(1) a 2-minute opening script,
+(2) 5 neutral questions to understand both sides,
+(3) boundaries and agreements to set,
+(4) a follow-up email recap template.
+Situation: [paste]</pre>
+  <button onclick="copyPrompt('prompt48','status48')">Copy Prompt</button>
+  <span id="status48" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Succession Plan for Key Role</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt49">Create a succession plan for this key position.
+Include:
+(1) critical responsibilities,
+(2) backup coverage options,
+(3) knowledge transfer artifacts to build,
+(4) cross-training plan,
+(5) risk if vacant + mitigation.
+Role details: [paste]</pre>
+  <button onclick="copyPrompt('prompt49','status49')">Copy Prompt</button>
+  <span id="status49" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="HR &amp; People" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Culture/Values One-Pager</h3>
+    <div class="badges"><span class="badge">HR &amp; People</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt50">Draft a one-page culture and values guide for our court team.
+Include: 5 values, what each looks like in behavior, and do/don’t examples.
+Current culture notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt50','status50')">Copy Prompt</button>
+  <span id="status50" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Password Reset + Account Access SOP</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt51">Create a simple SOP for password resets and account access requests.
+Include:
+(1) identity verification,
+(2) required approvals,
+(3) step-by-step actions,
+(4) audit logging,
+(5) escalation path.
+System context: [paste]</pre>
+  <button onclick="copyPrompt('prompt51','status51')">Copy Prompt</button>
+  <span id="status51" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Phishing Report: Staff Advisory</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt52">Draft a staff advisory about a suspected phishing email.
+Include:
+(1) what it looks like,
+(2) what NOT to do,
+(3) how to report it,
+(4) what IT will do next,
+(5) a short FAQ.
+Phishing sample text: [paste]</pre>
+  <button onclick="copyPrompt('prompt52','status52')">Copy Prompt</button>
+  <span id="status52" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Data Incident Response Playbook (Court)</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt53">Draft an incident response playbook tailored to a court.
+Include:
+(1) severity levels and examples,
+(2) first 60 minutes checklist,
+(3) evidence preservation steps,
+(4) communications plan (internal + external placeholders),
+(5) post-incident review template.
+Current environment details: [paste]</pre>
+  <button onclick="copyPrompt('prompt53','status53')">Copy Prompt</button>
+  <span id="status53" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Access Review Checklist (Least Privilege)</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt54">Create a quarterly access review checklist.
+Include:
+(1) roles that need review,
+(2) what to validate (inactive users, privileged accounts),
+(3) documentation needed,
+(4) sign-off process.
+Systems list: [paste]</pre>
+  <button onclick="copyPrompt('prompt54','status54')">Copy Prompt</button>
+  <span id="status54" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Vendor Security Questionnaire</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt55">Create a vendor security questionnaire for a court technology product.
+Include sections: data handling, encryption, access controls, logging, incident response, backups, subcontractors, and compliance.
+Then add a scoring method (low/med/high risk) with guidance.
+Product description: [paste]</pre>
+  <button onclick="copyPrompt('prompt55','status55')">Copy Prompt</button>
+  <span id="status55" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Courtroom Technology Run-of-Show</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt56">Create a run-of-show checklist for courtroom technology (audio/visual/remote hearing).
+Include: pre-session checks, during-session monitoring, and post-session shutdown.
+Equipment list: [paste]</pre>
+  <button onclick="copyPrompt('prompt56','status56')">Copy Prompt</button>
+  <span id="status56" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>E-Filing Outage Communication Pack</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt57">Draft a communication pack for an e-filing outage.
+Provide:
+(1) public notice text,
+(2) internal staff guidance,
+(3) helpdesk script,
+(4) status update cadence,
+(5) post-restoration message.
+Outage details: [paste]</pre>
+  <button onclick="copyPrompt('prompt57','status57')">Copy Prompt</button>
+  <span id="status57" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>System Change Request Template</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt58">Create a change request template for court IT changes.
+Include: purpose, scope, risk, testing, rollback, approvals, and communication plan.
+Change type: [paste]</pre>
+  <button onclick="copyPrompt('prompt58','status58')">Copy Prompt</button>
+  <span id="status58" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Security Awareness Micro-Training</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt59">Create a 10-minute security micro-training for staff.
+Include:
+(1) learning objectives,
+(2) 5 key points,
+(3) a short scenario exercise,
+(4) 5-question knowledge check.
+Topic: [paste]</pre>
+  <button onclick="copyPrompt('prompt59','status59')">Copy Prompt</button>
+  <span id="status59" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="IT &amp; Security" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Backup/Restore Tabletop Exercise</h3>
+    <div class="badges"><span class="badge">IT &amp; Security</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt60">Design a tabletop exercise for backup/restore readiness.
+Include:
+(1) scenario timeline,
+(2) roles and responsibilities,
+(3) decisions to make,
+(4) evidence to collect,
+(5) debrief questions and improvement actions.
+Environment details: [paste]</pre>
+  <button onclick="copyPrompt('prompt60','status60')">Copy Prompt</button>
+  <span id="status60" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Budget Variance Narrative</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt61">Turn these budget variances into a clear narrative for leadership.
+Include: what changed, why, impact, corrective actions, and next review date.
+Numbers and context: [paste]</pre>
+  <button onclick="copyPrompt('prompt61','status61')">Copy Prompt</button>
+  <span id="status61" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Purchase Justification (One Page)</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt62">Draft a one-page purchase justification.
+Include:
+(1) problem statement,
+(2) options considered,
+(3) cost breakdown,
+(4) expected benefits,
+(5) risks and mitigations,
+(6) recommendation.
+Purchase details: [paste]</pre>
+  <button onclick="copyPrompt('prompt62','status62')">Copy Prompt</button>
+  <span id="status62" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Vendor Comparison Matrix</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt63">Compare these vendor options.
+Output:
+(1) a decision matrix (cost, timeline, support, security, fit),
+(2) a short recommendation,
+(3) negotiation points.
+Vendor details: [paste]</pre>
+  <button onclick="copyPrompt('prompt63','status63')">Copy Prompt</button>
+  <span id="status63" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Complex">
+  <div class="card-header">
+    <h3>RFP Draft for Court Technology</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt64">Draft an RFP outline for this court technology need.
+Include:
+(1) background and objectives,
+(2) scope and deliverables,
+(3) functional requirements,
+(4) security and data requirements,
+(5) evaluation criteria and scoring,
+(6) submission instructions and timeline.
+Need statement: [paste]</pre>
+  <button onclick="copyPrompt('prompt64','status64')">Copy Prompt</button>
+  <span id="status64" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Invoice Exception Triage</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt65">Analyze this invoice exception and propose next steps.
+Include:
+(1) what doesn’t match,
+(2) likely root causes,
+(3) questions for vendor/internal,
+(4) recommended resolution path.
+Invoice details: [paste]</pre>
+  <button onclick="copyPrompt('prompt65','status65')">Copy Prompt</button>
+  <span id="status65" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Grant/Fee Schedule Plain-English Guide</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt66">Rewrite this fee or cost schedule in plain language.
+Include:
+(1) a simple summary,
+(2) examples of typical scenarios,
+(3) what fees can be waived (if applicable),
+(4) where to get help.
+Text: [paste]</pre>
+  <button onclick="copyPrompt('prompt66','status66')">Copy Prompt</button>
+  <span id="status66" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Internal Controls Checklist (Receipts/Disbursements)</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt67">Create an internal controls checklist for receipts and disbursements.
+Include: separation of duties, approvals, documentation, reconciliations, and audit trail.
+Current process notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt67','status67')">Copy Prompt</button>
+  <span id="status67" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Annual Budget Build Timeline</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt68">Create a timeline and workplan for building the annual court budget.
+Include:
+(1) key milestones,
+(2) inputs needed by department,
+(3) review/approval gates,
+(4) communication plan,
+(5) risk points and mitigations.
+Fiscal calendar and constraints: [paste]</pre>
+  <button onclick="copyPrompt('prompt68','status68')">Copy Prompt</button>
+  <span id="status68" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Cost-Benefit Analysis (Quick)</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt69">Do a lightweight cost-benefit analysis for this proposed change.
+Provide:
+(1) costs (one-time + recurring),
+(2) quantifiable benefits,
+(3) qualitative benefits,
+(4) risks,
+(5) break-even estimate (use assumptions and list them clearly).
+Proposal details: [paste]</pre>
+  <button onclick="copyPrompt('prompt69','status69')">Copy Prompt</button>
+  <span id="status69" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Finance &amp; Procurement" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Audit Findings Response Plan</h3>
+    <div class="badges"><span class="badge">Finance &amp; Procurement</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt70">Turn these audit findings into a response plan.
+Include:
+(1) finding summary,
+(2) root cause,
+(3) corrective actions,
+(4) owners and due dates,
+(5) evidence we’ll provide to close the finding.
+Findings: [paste]</pre>
+  <button onclick="copyPrompt('prompt70','status70')">Copy Prompt</button>
+  <span id="status70" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Website FAQ for Court Customers</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt71">Create a customer-facing FAQ for this court service.
+Include:
+(1) plain-language answers,
+(2) step-by-step ‘How do I…’ sections,
+(3) what to bring/prepare,
+(4) common mistakes,
+(5) who to contact.
+Service description: [paste]</pre>
+  <button onclick="copyPrompt('prompt71','status71')">Copy Prompt</button>
+  <span id="status71" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Press Statement (Neutral, Fact-Based)</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt72">Draft a neutral, fact-based public statement about this situation.
+Include:
+(1) what we can confirm,
+(2) what we cannot comment on,
+(3) where the public can find official info,
+(4) a respectful closing.
+Situation and approved facts: [paste]</pre>
+  <button onclick="copyPrompt('prompt72','status72')">Copy Prompt</button>
+  <span id="status72" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Plain-Language Court Notice Rewrite</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt73">Rewrite this notice for the public.
+Make it:
+(1) plain language,
+(2) short paragraphs,
+(3) clear headings,
+(4) action steps first,
+(5) include a checklist at the end.
+Notice text: [paste]</pre>
+  <button onclick="copyPrompt('prompt73','status73')">Copy Prompt</button>
+  <span id="status73" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Call Center/Counter Triage Decision Tree</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt74">Create a decision tree for front-line staff to route common questions.
+Output:
+(1) top 10 question types,
+(2) the routing logic,
+(3) scripts for each branch,
+(4) escalation triggers.
+Common questions and rules: [paste]</pre>
+  <button onclick="copyPrompt('prompt74','status74')">Copy Prompt</button>
+  <span id="status74" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Jury Service Email Template Set</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt75">Create a set of jury service email templates:
+(1) summons info,
+(2) postponement approval/denial,
+(3) reporting instructions,
+(4) thank-you/verification letter.
+Include placeholders and a friendly tone.
+Local requirements: [paste]</pre>
+  <button onclick="copyPrompt('prompt75','status75')">Copy Prompt</button>
+  <span id="status75" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Community Presentation Outline</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt76">Build a 15-minute community presentation outline about this court program.
+Include:
+(1) key messages,
+(2) 6-slide storyboard (title + bullets),
+(3) 3 audience questions to invite,
+(4) a 60-second closing.
+Program details: [paste]</pre>
+  <button onclick="copyPrompt('prompt76','status76')">Copy Prompt</button>
+  <span id="status76" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Social Post Pack (Service Update)</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt77">Write 6 short social posts (platform-neutral) about this service update.
+Include: announcement, reminder, ‘how-to’, myth vs fact, deadline, and where to get help.
+Details: [paste]</pre>
+  <button onclick="copyPrompt('prompt77','status77')">Copy Prompt</button>
+  <span id="status77" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Difficult Customer Complaint Response</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt78">Draft a response to this customer complaint.
+Include:
+(1) acknowledgement and empathy,
+(2) what we can do next,
+(3) what we cannot do (boundary),
+(4) timeline and contact info.
+Complaint: [paste]</pre>
+  <button onclick="copyPrompt('prompt78','status78')">Copy Prompt</button>
+  <span id="status78" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Signage Improvement Plan</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt79">Using these customer pain points, propose an improved signage plan.
+Provide:
+(1) top locations for signs,
+(2) suggested wording (plain language),
+(3) accessibility considerations,
+(4) quick mock text for 8 signs.
+Pain points/notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt79','status79')">Copy Prompt</button>
+  <span id="status79" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Public Service &amp; Communications" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Media Q&amp;A Prep Sheet</h3>
+    <div class="badges"><span class="badge">Public Service &amp; Communications</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt80">Create a media Q&amp;A prep sheet.
+Include:
+(1) key message,
+(2) 10 likely questions,
+(3) approved answer points,
+(4) ‘bridge’ phrases to stay on message,
+(5) do-not-speculate reminders.
+Topic and facts: [paste]</pre>
+  <button onclick="copyPrompt('prompt80','status80')">Copy Prompt</button>
+  <span id="status80" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>SOP Builder from Bullet Notes</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt81">Turn these bullet notes into an SOP.
+Include: purpose, scope, definitions, step-by-step procedure, exceptions, and a final checklist.
+Notes: [paste]</pre>
+  <button onclick="copyPrompt('prompt81','status81')">Copy Prompt</button>
+  <span id="status81" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Job Aid (One Page)</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt82">Create a one-page job aid for this task.
+Include:
+(1) when to use it,
+(2) steps (max 8),
+(3) screenshots placeholders,
+(4) common errors,
+(5) who to contact.
+Task description: [paste]</pre>
+  <button onclick="copyPrompt('prompt82','status82')">Copy Prompt</button>
+  <span id="status82" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Training Plan for New Process</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt83">Design a training plan for rolling out this new process.
+Include:
+(1) audience segments,
+(2) learning objectives,
+(3) training formats (live/recorded/job aid),
+(4) practice exercises,
+(5) adoption metrics.
+Process details: [paste]</pre>
+  <button onclick="copyPrompt('prompt83','status83')">Copy Prompt</button>
+  <span id="status83" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Scenario-Based Practice Exercises</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt84">Create 6 scenario-based exercises for staff practice.
+For each scenario provide:
+(1) setup,
+(2) task to complete,
+(3) what a correct outcome looks like,
+(4) common mistakes.
+Topic: [paste]</pre>
+  <button onclick="copyPrompt('prompt84','status84')">Copy Prompt</button>
+  <span id="status84" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Knowledge Check Quiz</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt85">Create a 10-question knowledge check on this policy/process.
+Include: 7 multiple-choice and 3 short-answer, plus an answer key.
+Material: [paste]</pre>
+  <button onclick="copyPrompt('prompt85','status85')">Copy Prompt</button>
+  <span id="status85" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Process Map (Text-Only)</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt86">Create a text-based process map using this format:
+Start → Step → Decision (Yes/No) → Next step → End.
+Then list where errors commonly happen and prevention tips.
+Process description: [paste]</pre>
+  <button onclick="copyPrompt('prompt86','status86')">Copy Prompt</button>
+  <span id="status86" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Standard Email Templates Toolkit</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt87">Create a toolkit of 5 reusable email templates for this workflow.
+Each template should include a subject line, brief body, and placeholders.
+Workflow and triggers: [paste]</pre>
+  <button onclick="copyPrompt('prompt87','status87')">Copy Prompt</button>
+  <span id="status87" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Cross-Training Matrix</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt88">Create a cross-training matrix for this team.
+Output a table:
+Task | primary | backup | training needed | risk if uncovered.
+Then propose a 6-week cross-training schedule.
+Team roles and tasks: [paste]</pre>
+  <button onclick="copyPrompt('prompt88','status88')">Copy Prompt</button>
+  <span id="status88" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Quality Assurance Checklist</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt89">Build a QA checklist for this process.
+Include:
+(1) must-check fields,
+(2) common error patterns,
+(3) sampling method,
+(4) escalation when issues repeat.
+Process and examples: [paste]</pre>
+  <button onclick="copyPrompt('prompt89','status89')">Copy Prompt</button>
+  <span id="status89" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Training &amp; SOPs" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Lessons Learned Retro Template</h3>
+    <div class="badges"><span class="badge">Training &amp; SOPs</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt90">Create a lessons learned template for this project/cycle.
+Include sections: what went well, what didn’t, root causes, action items, owners, and next review date.
+Context: [paste]</pre>
+  <button onclick="copyPrompt('prompt90','status90')">Copy Prompt</button>
+  <span id="status90" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Monthly Metrics Dashboard Narrative</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt91">Turn these metrics into a leadership-ready narrative.
+Include:
+(1) what changed since last month,
+(2) notable outliers,
+(3) likely drivers,
+(4) recommended actions.
+Metrics: [paste]</pre>
+  <button onclick="copyPrompt('prompt91','status91')">Copy Prompt</button>
+  <span id="status91" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Excel Chart Recommendations</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt92">I have a table in Excel described below. Do the following:
+(1) suggest 3 charts that best tell the story,
+(2) explain what each chart reveals,
+(3) give step-by-step instructions to build them in Excel.
+Table description: [paste]</pre>
+  <button onclick="copyPrompt('prompt92','status92')">Copy Prompt</button>
+  <span id="status92" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Data Quality Rules for Case Data</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt93">Define data quality rules for this dataset.
+Provide:
+(1) validation rules per field,
+(2) duplicate detection logic,
+(3) required vs optional fields,
+(4) a weekly data QA routine.
+Fields and sample data: [paste]</pre>
+  <button onclick="copyPrompt('prompt93','status93')">Copy Prompt</button>
+  <span id="status93" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Trend + Forecast (Simple)</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt94">Using the time-series numbers below, produce:
+(1) a plain-language trend summary,
+(2) a simple forecast for next 3 periods using stated assumptions,
+(3) risks to the forecast,
+(4) questions to validate.
+Data: [paste]</pre>
+  <button onclick="copyPrompt('prompt94','status94')">Copy Prompt</button>
+  <span id="status94" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Operational Heatmap (Text Output)</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt95">From this workload-by-unit data, identify hot spots.
+Deliver:
+(1) top 5 high-load areas,
+(2) likely causes,
+(3) suggestions to redistribute work,
+(4) a monitoring plan.
+Data: [paste]</pre>
+  <button onclick="copyPrompt('prompt95','status95')">Copy Prompt</button>
+  <span id="status95" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Report Template: Clerk Operations</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt96">Create a reusable monthly report template for Clerk/Records operations.
+Include sections: filings received, rejections, turnaround time, public records requests, staffing, issues, and next-month focus.
+Any local metrics to include: [paste]</pre>
+  <button onclick="copyPrompt('prompt96','status96')">Copy Prompt</button>
+  <span id="status96" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Scorecard for Court Service Program</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt97">Create a scorecard for this court service program.
+Include:
+(1) outcomes, outputs, quality, timeliness, customer experience,
+(2) definitions and formulas,
+(3) targets,
+(4) how to collect data with minimal burden.
+Program details: [paste]</pre>
+  <button onclick="copyPrompt('prompt97','status97')">Copy Prompt</button>
+  <span id="status97" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Narrative from a Table (Public-Facing)</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt98">Convert this table into a public-facing summary.
+Include:
+(1) a short headline,
+(2) 5 key takeaways,
+(3) 1 paragraph narrative,
+(4) plain-language explanations of any technical terms.
+Table data: [paste]</pre>
+  <button onclick="copyPrompt('prompt98','status98')">Copy Prompt</button>
+  <span id="status98" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Quick">
+  <div class="card-header">
+    <h3>Audit Trail Documentation Template</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-quick">Quick</span></div>
+  </div>
+  <pre id="prompt99">Create a template for documenting audit trail evidence for this process.
+Include: what happened, when, who approved, system evidence, and where the record is stored.
+Process: [paste]</pre>
+  <button onclick="copyPrompt('prompt99','status99')">Copy Prompt</button>
+  <span id="status99" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Reporting &amp; Analytics" data-complexity="Complex">
+  <div class="card-header">
+    <h3>Executive Slide Outline from Metrics</h3>
+    <div class="badges"><span class="badge">Reporting &amp; Analytics</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="prompt100">Create a 8-slide outline for a leadership deck using these metrics.
+For each slide provide: title, 3 bullets, and speaker notes (2 sentences).
+Metrics and context: [paste]</pre>
+  <button onclick="copyPrompt('prompt100','status100')">Copy Prompt</button>
+  <span id="status100" class="copied"></span>
+</div>
+
+  <footer>
+    Tip: Replace placeholders like <strong>[paste]</strong> / <strong>[paste notes]</strong> with your content.
+    If you are working with sensitive information, follow your organization’s privacy and data-handling policies.
+  </footer>
+
+  <script>
+    function copyPrompt(promptId, statusId) {
+      const text = document.getElementById(promptId).innerText;
+      navigator.clipboard.writeText(text);
+      const el = document.getElementById(statusId);
+      el.innerText = "Copied!";
+      setTimeout(() => { el.innerText = ""; }, 1500);
+    }
+
+    function filterPrompts() {
+      const q = (document.getElementById('searchBox').value || '').toLowerCase();
+      const cat = document.getElementById('categorySelect').value;
+      const comp = document.getElementById('complexitySelect').value;
+      const cards = Array.from(document.querySelectorAll('.prompt-card'));
+      let shown = 0;
+
+      cards.forEach(card => {
+        const c = card.getAttribute('data-category');
+        const k = card.getAttribute('data-complexity');
+        const text = card.innerText.toLowerCase();
+        const matchQ = (!q || text.includes(q));
+        const matchC = (cat === 'All' || c === cat);
+        const matchK = (comp === 'All' || k === comp);
+        const show = matchQ && matchC && matchK;
+        card.style.display = show ? '' : 'none';
+        if (show) shown += 1;
+      });
+
+      document.getElementById('countLabel').innerText = shown + " shown / " + cards.length + " total";
+    }
+
+    // Initialize count
+    filterPrompts();
+  </script>
+</body>
+</html>
