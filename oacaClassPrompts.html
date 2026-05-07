@@ -557,13 +557,56 @@ Constraints: [paste]</pre>
   <h3>OKRs for a Court Ops Team</h3>
   <div class="badges"><span class="badge">Module 2 — Strategic Planning &amp; Scheduling</span><span class="badge badge-complex">Complex</span></div>
  </div>
- <pre id="prompt30">Create OKRs for a court operations team for the next quarter.
-Provide:
-(1) 3 objectives,
-(2) 3–5 key results each,
-(3) initiatives tied to KRs,
-(4) weekly check-in questions.
-Goals and constraints: [paste]</pre>
+ <pre id="prompt30">You are my workforce scheduler for a court operations team. Build a weekly shift schedule in an Excel workbook.
+
+GOALS & CONSTRAINTS
+- Total weekly coverage required: 500 staff-hours (sum of all scheduled employee hours must equal 500).
+- Work week coverage window: 60 operating hours total per week.
+- Two shifts per operating day.
+- No employee may exceed 40 scheduled hours in the week.
+- Use placeholder employees only: Emp1, Emp2, Emp3, … (no real names).
+- Prefer fairness: distribute hours as evenly as possible.
+- Prefer stability: avoid scheduling the same employee for both shifts in the same day unless necessary.
+
+SHIFT STRUCTURE (edit placeholders if needed)
+- Operating days: [Mon, Tue, Wed, Thu, Fri, Sat]  (6 days × 10 hours/day = 60 hours/week)
+- Shift 1: [08:00–13:00] = 5 hours
+- Shift 2: [13:00–18:00] = 5 hours
+
+WHAT YOU MUST DO (multi-step)
+1) Calculate the minimum number of employees required to cover 500 hours with a 40-hour max:
+   - N = CEILING(500 / 40). Use that N to generate Emp1..EmpN.
+2) Determine staffing needed per shift to achieve exactly 500 total staff-hours:
+   - Total shift-blocks in the week = (number of operating days × 2).
+   - Each shift-block length = 5 hours (or use the shift length I provided).
+   - Convert 500 staff-hours into the number of “employee-shift assignments” needed.
+   - Distribute staffing per shift-block (e.g., mix of 8 and 9 people per shift) so that total staff-hours = 500 exactly.
+3) Create a schedule that assigns Emp1..EmpN into each shift-block while:
+   - keeping each employee ≤ 40 hours,
+   - balancing workloads (as equal as possible),
+   - minimizing double-shifts in one day.
+4) Build the Excel output with these sheets:
+   A) “Parameters”
+      - Inputs (coverage hours, max hours, days, shift times)
+      - Computations (Min employees needed, total shift-blocks, staffing per shift-block)
+   B) “Schedule”
+      - Rows = Emp1..EmpN
+      - Columns = each day/shift (e.g., Mon AM, Mon PM, Tue AM…)
+      - Mark assignments with “X”
+      - Add a “Hours” column using a formula that calculates each employee’s total hours
+      - Add conditional formatting to flag any employee > 40 hours (should be none)
+   C) “Shift Staffing”
+      - A table listing each shift-block (Day, Shift, Start, End, Shift Hours, Staff Assigned, Staff-Hours)
+      - Include a total row summing staff-hours = 500
+   D) “Employee Totals”
+      - Employee | Assigned Hours | Max Hours | Remaining Hours
+5) Final check:
+   - Confirm total scheduled staff-hours = 500
+   - Confirm no one exceeds 40 hours
+   - If constraints conflict, list what must change (more employees, different shift length, etc.)
+
+Output to an Excel workbook. 
+``</pre>
  <button onclick="copyPrompt('prompt30','status30')">Copy Prompt</button>
  <span id="status30" class="copied"></span>
 </div>
