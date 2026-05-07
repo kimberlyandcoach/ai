@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>AI at Your Desk — Court Task Management — Copilot Prompt Library</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ max-width: 1000px;
+ margin: 40px auto;
+ line-height: 1.5;
+ padding: 0 14px;
+ }
+ h1 { margin-bottom: 6px; }
+ .sub { color: #444; margin-top: 0; }
+ .toolbar {
+ display: flex;
+ gap: 10px;
+ flex-wrap: wrap;
+ align-items: center;
+ margin: 18px 0 22px;
+ padding: 12px;
+ background: #f3f6fb;
+ border: 1px solid #d7e1f2;
+ border-radius: 8px;
+ }
+ .toolbar label { font-size: 13px; color:#333; }
+ .toolbar input, .toolbar select {
+ padding: 8px 10px;
+ font-size: 14px;
+ border: 1px solid #c9c9c9;
+ border-radius: 6px;
+ }
+ .toolbar .count { margin-left: auto; font-size: 13px; color:#333; }
+ .prompt-card {
+ border: 1px solid #d0d0d0;
+ padding: 16px;
+ margin-bottom: 16px;
+ border-radius: 8px;
+ background: #fafafa;
+ }
+ .card-header {
+ display:flex;
+ justify-content: space-between;
+ align-items: flex-start;
+ gap: 12px;
+ }
+ .card-header h3 { margin: 0 0 8px; font-size: 18px; }
+ pre {
+ white-space: pre-wrap;
+ background: #fff;
+ border: 1px solid #e6e6e6;
+ padding: 12px;
+ border-radius: 6px;
+ margin: 8px 0 10px;
+ font-size: 14px;
+ }
+ button {
+ margin-top: 2px;
+ padding: 8px 14px;
+ font-size: 14px;
+ cursor: pointer;
+ border-radius: 6px;
+ border: 1px solid #888;
+ background: #ffffff;
+ }
+ button:hover { background:#f1f1f1; }
+ .copied {
+ color: #1a7f37;
+ font-size: 13px;
+ margin-left: 10px;
+ }
+ .badges { display:flex; gap:6px; flex-wrap: wrap; justify-content: flex-end; }
+ .badge {
+ display:inline-block;
+ padding: 2px 8px;
+ border-radius: 999px;
+ font-size: 12px;
+ border: 1px solid #cfcfcf;
+ background: #fff;
+ color: #222;
+ }
+ .badge-quick { background:#f2fff2; border-color:#bfe8bf; }
+ .badge-complex { background:#eef6ff; border-color:#b7d6ff; }
+ footer { margin-top: 26px; font-size: 12px; color:#444; }
+ </style>
+</head>
+<body>
+ <h1>AI at Your Desk — Court Task Management — Copilot Prompt Library</h1>
+ <p class="sub">Click <strong>Copy Prompt</strong>, then paste directly into Copilot. Use Search, Category, and Complexity to find the right prompt quickly.</p>
+ <div class="toolbar">
+  <div>
+   <label for="searchBox"><strong>Search</strong></label><br />
+   <input id="searchBox" type="text" placeholder="Search titles or prompt text…" oninput="filterPrompts()" />
+  </div>
+  <div>
+   <label for="categorySelect"><strong>Category</strong></label><br />
+   <select id="categorySelect" onchange="filterPrompts()">
+    <option value="All">All</option>
+    <option value="Module 1 — Copilot &amp; AI Basics">Module 1 — Copilot &amp; AI Basics</option>
+<option value="Module 2 — Email">Module 2 — Email</option>
+<option value="Module 2 — Memos &amp; Correspondence">Module 2 — Memos &amp; Correspondence</option>
+<option value="Module 2 — Document Chat &amp; Analysis">Module 2 — Document Chat &amp; Analysis</option>
+<option value="Module 2 — Strategic Planning &amp; Scheduling">Module 2 — Strategic Planning &amp; Scheduling</option>
+<option value="Module 2 — You-Call-It (Live Requests)">Module 2 — You-Call-It (Live Requests)</option>
+<option value="Module 3 — Hackathon: Daily Docket Digest">Module 3 — Hackathon: Daily Docket Digest</option>
+<option value="Module 3 — Hackathon: Communication Super-Assistant">Module 3 — Hackathon: Communication Super-Assistant</option>
+<option value="Module 3 — Hackathon: Case Snapshot">Module 3 — Hackathon: Case Snapshot</option>
+<option value="Module 3 — Hackathon: Policy Toolkit">Module 3 — Hackathon: Policy Toolkit</option>
+<option value="Module 3 — Hackathon: Workflow Automator">Module 3 — Hackathon: Workflow Automator</option>
+   </select>
+  </div>
+  <div>
+   <label for="complexitySelect"><strong>Complexity</strong></label><br />
+   <select id="complexitySelect" onchange="filterPrompts()">
+    <option value="All">All</option>
+    <option value="Complex">Complex</option>
+    <option value="Quick">Quick</option>
+   </select>
+  </div>
+  <div class="count" id="countLabel"></div>
+ </div>
+
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Copilot Interface: Fast Start Checklist</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt1">Act as my Copilot coach. Give me a 10-step checklist to get productive in the Copilot chat interface.
+Include:
+(1) how to provide context,
+(2) how to request a specific format,
+(3) how to ask for clarifying questions,
+(4) how to iterate with follow-up prompts,
+(5) a final verification step.
+My role: Court Administrator. My typical tasks: [paste].</pre>
+ <button onclick="copyPrompt('prompt1','status1')">Copy Prompt</button>
+ <span id="status1" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Prompt Engineering: Make This Prompt Better</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt2">Improve my draft prompt so it produces a reliable result.
+Steps:
+(1) Identify what’s missing (context, constraints, output format).
+(2) Rewrite my prompt in a stronger multi-step format.
+(3) Provide 2 variations: one “Quick” and one “Thorough”.
+My draft prompt: [paste]</pre>
+ <button onclick="copyPrompt('prompt2','status2')">Copy Prompt</button>
+ <span id="status2" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Human-in-the-Loop: Verification Plan</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt3">Create a “human-in-the-loop” verification plan for using AI on court work.
+Include:
+(1) what Copilot can draft vs what humans must verify,
+(2) a 6-step verification checklist for accuracy,
+(3) common hallucination risks in court documents,
+(4) a sign-off workflow for distribution.
+Use cases we do: [paste].</pre>
+ <button onclick="copyPrompt('prompt3','status3')">Copy Prompt</button>
+ <span id="status3" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Data Security: What NOT to Paste</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt4">Create a simple guide for staff: “What you should and should NOT paste into Copilot.”
+Include:
+(1) 10 examples of sensitive data to avoid (PII, minors, protected addresses, etc.),
+(2) safer substitutes (redaction/anonymization examples),
+(3) a 3-step decision rule: OK / Ask / Do Not Share.
+Court context: [paste].</pre>
+ <button onclick="copyPrompt('prompt4','status4')">Copy Prompt</button>
+ <span id="status4" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Data Security: Redaction Helper</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt5">Help me anonymize this text so it is safe to use for drafting.
+Steps:
+(1) Identify sensitive elements.
+(2) Replace them with consistent placeholders (e.g., [PARTY_1], [CASE_#]).
+(3) Return the sanitized version AND a list of what you changed.
+Text: [paste]</pre>
+ <button onclick="copyPrompt('prompt5','status5')">Copy Prompt</button>
+ <span id="status5" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Explain AI to a Skeptical Colleague (60 seconds)</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt6">Write a 60-second explanation of what Copilot is and isn’t for court staff.
+Constraints:
+- Emphasize that humans remain responsible.
+- Use plain language.
+- Include one quick example (email or summary).
+Audience: [front counter / leadership / mixed].</pre>
+ <button onclick="copyPrompt('prompt6','status6')">Copy Prompt</button>
+ <span id="status6" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>“Ask Me 5 Questions” Context Builder</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt7">Before you answer, ask me 5 targeted questions to gather the missing context.
+Then, after I respond, produce the final output in the format I requested.
+Task I’m trying to do: [describe].</pre>
+ <button onclick="copyPrompt('prompt7','status7')">Copy Prompt</button>
+ <span id="status7" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Output Control: Same Content, 3 Tones</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt8">Rewrite the following message in three tones:
+(1) formal,
+(2) neutral/standard,
+(3) plain-language (6th–8th grade).
+Keep meaning the same. Text: [paste]</pre>
+ <button onclick="copyPrompt('prompt8','status8')">Copy Prompt</button>
+ <span id="status8" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 1 — Copilot &amp; AI Basics" data-complexity="Quick">
+ <div class="card-header">
+  <h3>MEMORY: Court Administrator Preferences (Paste Once)</h3>
+  <div class="badges"><span class="badge">Module 1 — Copilot &amp; AI Basics</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt9">Remember the following preferences for future drafts I request.
+Role: General Court Administrator.
+Court type/division: [paste].
+Preferred tone: [formal / neutral / plain-language].
+Default output format: [bullets / table / memo / email].
+Standard sections I want included (when relevant): [e.g., Risks, Decisions Needed, Next Steps].
+Rules to follow:
+- Never invent facts, dates, case numbers, or policy language.
+- If something is missing, ask clarifying questions.
+- Flag potential privacy/PII concerns.
+- Keep drafts ready-to-send and include placeholders when facts are unknown.
+Confirm you stored this memory and then summarize it back to me in 5 bullets.</pre>
+ <button onclick="copyPrompt('prompt9','status9')">Copy Prompt</button>
+ <span id="status9" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Email" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Email: Turn Notes into a Ready-to-Send Message</h3>
+  <div class="badges"><span class="badge">Module 2 — Email</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt10">Draft an email using the notes below.
+Include:
+(1) a clear subject line,
+(2) a 1-sentence purpose up front,
+(3) action items as bullets,
+(4) deadline/date callouts,
+(5) a polite close.
+Notes: [paste]</pre>
+ <button onclick="copyPrompt('prompt10','status10')">Copy Prompt</button>
+ <span id="status10" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Email" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Email: Reduce Back-and-Forth (Clarifying Questions)</h3>
+  <div class="badges"><span class="badge">Module 2 — Email</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt11">You are my communication optimizer. Based on this email draft, do the following:
+(1) Identify missing info that will cause follow-up questions.
+(2) Write 5 clarifying questions I should answer.
+(3) Produce an improved email that anticipates those questions using placeholders.
+Draft email: [paste]</pre>
+ <button onclick="copyPrompt('prompt11','status11')">Copy Prompt</button>
+ <span id="status11" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Email" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Email: Complaint Response (Empathy + Boundaries)</h3>
+  <div class="badges"><span class="badge">Module 2 — Email</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt12">Draft a response to this complaint.
+Include:
+(1) empathy and acknowledgement,
+(2) what we can do next,
+(3) what we cannot do (boundary),
+(4) a clear next step for the customer,
+(5) contact options.
+Complaint: [paste]</pre>
+ <button onclick="copyPrompt('prompt12','status12')">Copy Prompt</button>
+ <span id="status12" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Email" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Email: Policy Update Announcement (Internal)</h3>
+  <div class="badges"><span class="badge">Module 2 — Email</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt13">Draft an internal policy update email.
+Include:
+(1) what changed,
+(2) why it changed,
+(3) who is impacted,
+(4) exactly what to do,
+(5) effective date and transition timeline,
+(6) where to find the full policy.
+Policy summary: [paste]</pre>
+ <button onclick="copyPrompt('prompt13','status13')">Copy Prompt</button>
+ <span id="status13" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Email" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Email: Meeting Recap with Owners + Due Dates</h3>
+  <div class="badges"><span class="badge">Module 2 — Email</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt14">Convert these meeting notes into a recap email.
+Output must include:
+(1) attendees,
+(2) decisions,
+(3) action items (owner + due date),
+(4) open questions,
+(5) next meeting date/time (if provided).
+Notes: [paste]</pre>
+ <button onclick="copyPrompt('prompt14','status14')">Copy Prompt</button>
+ <span id="status14" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Email" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Email: Rewrite for Accessibility</h3>
+  <div class="badges"><span class="badge">Module 2 — Email</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt15">Rewrite this email for accessibility:
+- short sentences
+- clear headings
+- bullets for steps
+- inclusive language
+- add a 3-bullet “Quick Actions” section at the top
+Text: [paste]</pre>
+ <button onclick="copyPrompt('prompt15','status15')">Copy Prompt</button>
+ <span id="status15" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Memos &amp; Correspondence" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Memo: Decision-Ready Brief</h3>
+  <div class="badges"><span class="badge">Module 2 — Memos &amp; Correspondence</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt16">Create a decision-ready memo from these inputs.
+Include:
+(1) Background,
+(2) Current State,
+(3) Options (3) with pros/cons,
+(4) Risks/constraints,
+(5) Recommendation,
+(6) Implementation plan (first 30 days).
+Inputs: [paste]</pre>
+ <button onclick="copyPrompt('prompt16','status16')">Copy Prompt</button>
+ <span id="status16" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Memos &amp; Correspondence" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Memo: Executive Summary + Appendix</h3>
+  <div class="badges"><span class="badge">Module 2 — Memos &amp; Correspondence</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt17">Turn this long content into:
+(1) a 1-page executive summary (max 10 bullets), and
+(2) a structured appendix with headings.
+Content: [paste]</pre>
+ <button onclick="copyPrompt('prompt17','status17')">Copy Prompt</button>
+ <span id="status17" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Memos &amp; Correspondence" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Letter: Hearing Reminder (Plain Language)</h3>
+  <div class="badges"><span class="badge">Module 2 — Memos &amp; Correspondence</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt18">Draft a plain-language hearing reminder letter.
+Must include:
+(1) date/time/location,
+(2) what to bring,
+(3) what happens if they don’t appear (use neutral approved language placeholders),
+(4) accommodation/interpreter contact,
+(5) where to get procedural help.
+Details: [paste]</pre>
+ <button onclick="copyPrompt('prompt18','status18')">Copy Prompt</button>
+ <span id="status18" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Memos &amp; Correspondence" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Letter: Filing Rejection Notice (Helpful)</h3>
+  <div class="badges"><span class="badge">Module 2 — Memos &amp; Correspondence</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt19">Draft a filing rejection notice that is clear and non-accusatory.
+Include:
+(1) what was submitted,
+(2) why it cannot be accepted (rule placeholder),
+(3) how to correct it,
+(4) resubmission deadline (if applicable),
+(5) contact info.
+Details: [paste]</pre>
+ <button onclick="copyPrompt('prompt19','status19')">Copy Prompt</button>
+ <span id="status19" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Memos &amp; Correspondence" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Correspondence: 3 Versions for Different Audiences</h3>
+  <div class="badges"><span class="badge">Module 2 — Memos &amp; Correspondence</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt20">Create three versions of the same message:
+(1) public-facing plain language,
+(2) internal staff instructions,
+(3) leadership summary.
+Keep facts consistent. Topic/details: [paste]</pre>
+ <button onclick="copyPrompt('prompt20','status20')">Copy Prompt</button>
+ <span id="status20" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Document Chat &amp; Analysis" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Document Analysis: Extract Key Details into a Table</h3>
+  <div class="badges"><span class="badge">Module 2 — Document Chat &amp; Analysis</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt21">From the text below, extract key details into a table with columns:
+Case # | Parties | Date/Time | Location | Required action | Deadline | Notes.
+Text: [paste]</pre>
+ <button onclick="copyPrompt('prompt21','status21')">Copy Prompt</button>
+ <span id="status21" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Document Chat &amp; Analysis" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Document Analysis: Summarize + Flag What’s Missing</h3>
+  <div class="badges"><span class="badge">Module 2 — Document Chat &amp; Analysis</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt22">Analyze this document and produce:
+(1) a concise summary,
+(2) a timeline of key events,
+(3) missing information or ambiguities,
+(4) 8 follow-up questions to resolve gaps,
+(5) a “do not assume” list.
+Document text: [paste]</pre>
+ <button onclick="copyPrompt('prompt22','status22')">Copy Prompt</button>
+ <span id="status22" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Document Chat &amp; Analysis" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Document Analysis: Compile Multiple Sources</h3>
+  <div class="badges"><span class="badge">Module 2 — Document Chat &amp; Analysis</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt23">I will paste multiple items (emails/notes/excerpts). Create a unified briefing that:
+(1) de-duplicates repeated info,
+(2) resolves conflicting statements by flagging them,
+(3) creates one combined timeline,
+(4) outputs a final “Case/Issue Snapshot” in structured sections.
+Items: [paste]</pre>
+ <button onclick="copyPrompt('prompt23','status23')">Copy Prompt</button>
+ <span id="status23" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Document Chat &amp; Analysis" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Document QA: Fact-Check Pass</h3>
+  <div class="badges"><span class="badge">Module 2 — Document Chat &amp; Analysis</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt24">Perform a fact-check pass on this draft.
+Steps:
+(1) List every factual claim that needs verification.
+(2) Identify which ones are unsupported by the provided text.
+(3) Suggest safer wording (placeholders) for unsupported claims.
+Draft + source text: [paste]</pre>
+ <button onclick="copyPrompt('prompt24','status24')">Copy Prompt</button>
+ <span id="status24" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Document Chat &amp; Analysis" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Template Builder: Turn This Into a Reusable Form</h3>
+  <div class="badges"><span class="badge">Module 2 — Document Chat &amp; Analysis</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt25">Turn this content into a reusable template with placeholders.
+Include:
+(1) a clean structure with headings,
+(2) placeholder brackets,
+(3) a short “How to use this template” note.
+Content: [paste]</pre>
+ <button onclick="copyPrompt('prompt25','status25')">Copy Prompt</button>
+ <span id="status25" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Strategic Planning &amp; Scheduling" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Weekly Priorities: Turn Inputs into a Plan</h3>
+  <div class="badges"><span class="badge">Module 2 — Strategic Planning &amp; Scheduling</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt26">Turn these inputs into a weekly priorities plan.
+Output:
+(1) top 5 priorities,
+(2) why each matters,
+(3) owners,
+(4) due dates,
+(5) risks/dependencies.
+Inputs: [paste]</pre>
+ <button onclick="copyPrompt('prompt26','status26')">Copy Prompt</button>
+ <span id="status26" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Strategic Planning &amp; Scheduling" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Meeting Agenda Builder (Timeboxed)</h3>
+  <div class="badges"><span class="badge">Module 2 — Strategic Planning &amp; Scheduling</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt27">Draft a timeboxed agenda for a [30/45/60]-minute meeting.
+Include:
+(1) objective,
+(2) timeboxes,
+(3) decision points,
+(4) pre-reads,
+(5) expected outputs.
+Topic + attendees: [paste]</pre>
+ <button onclick="copyPrompt('prompt27','status27')">Copy Prompt</button>
+ <span id="status27" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Strategic Planning &amp; Scheduling" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Project Plan: 30-Day Pilot</h3>
+  <div class="badges"><span class="badge">Module 2 — Strategic Planning &amp; Scheduling</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt28">Create a 30-day pilot plan for this court improvement idea.
+Include:
+(1) scope (in/out),
+(2) success metrics,
+(3) timeline by week,
+(4) roles,
+(5) risks + mitigations,
+(6) communications plan.
+Idea and constraints: [paste]</pre>
+ <button onclick="copyPrompt('prompt28','status28')">Copy Prompt</button>
+ <span id="status28" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Strategic Planning &amp; Scheduling" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Calendar Conflict Resolver (Constraints First)</h3>
+  <div class="badges"><span class="badge">Module 2 — Strategic Planning &amp; Scheduling</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt29">Given the constraints below, propose a conflict-free schedule.
+Steps:
+(1) list all constraints you detected,
+(2) propose a schedule,
+(3) flag remaining conflicts,
+(4) propose alternatives.
+Constraints: [paste]</pre>
+ <button onclick="copyPrompt('prompt29','status29')">Copy Prompt</button>
+ <span id="status29" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — Strategic Planning &amp; Scheduling" data-complexity="Complex">
+ <div class="card-header">
+  <h3>OKRs for a Court Ops Team</h3>
+  <div class="badges"><span class="badge">Module 2 — Strategic Planning &amp; Scheduling</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt30">Create OKRs for a court operations team for the next quarter.
+Provide:
+(1) 3 objectives,
+(2) 3–5 key results each,
+(3) initiatives tied to KRs,
+(4) weekly check-in questions.
+Goals and constraints: [paste]</pre>
+ <button onclick="copyPrompt('prompt30','status30')">Copy Prompt</button>
+ <span id="status30" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — You-Call-It (Live Requests)" data-complexity="Quick">
+ <div class="card-header">
+  <h3>You-Call-It: Turn Any Request Into a Great Prompt</h3>
+  <div class="badges"><span class="badge">Module 2 — You-Call-It (Live Requests)</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt31">I’m going to describe a task. Convert it into a high-quality multi-step Copilot prompt.
+Include:
+(1) role you should play,
+(2) the exact output format,
+(3) constraints and assumptions,
+(4) a verification step.
+Task: [paste]</pre>
+ <button onclick="copyPrompt('prompt31','status31')">Copy Prompt</button>
+ <span id="status31" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 2 — You-Call-It (Live Requests)" data-complexity="Quick">
+ <div class="card-header">
+  <h3>You-Call-It: Prompt Debugger</h3>
+  <div class="badges"><span class="badge">Module 2 — You-Call-It (Live Requests)</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt32">My prompt isn’t working. Diagnose why and fix it.
+Steps:
+(1) identify ambiguity,
+(2) add missing constraints,
+(3) rewrite it,
+(4) suggest 2 follow-up prompts to refine results.
+My prompt + Copilot output: [paste]</pre>
+ <button onclick="copyPrompt('prompt32','status32')">Copy Prompt</button>
+ <span id="status32" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Daily Docket Digest" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Hackathon (Docket): Extract + Standardize</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Daily Docket Digest</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt33">You are my docket-digest assistant. From the raw docket text below:
+(1) Extract a table with: Time | Courtroom | Case # | Parties | Event type | Remote? | Special needs.
+(2) Then produce a polished “Daily Docket Brief” using this structure:
+   - At-a-glance
+   - Key Notes &amp; Alerts
+   - Docket Summary (table)
+   - Quality Check checklist
+(3) Flag any missing info you need me to confirm.
+Raw docket: [paste]</pre>
+ <button onclick="copyPrompt('prompt33','status33')">Copy Prompt</button>
+ <span id="status33" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Daily Docket Digest" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Hackathon (Docket): Quality Check Pass</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Daily Docket Digest</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt34">Quality-check this Daily Docket Brief against the raw docket.
+Output:
+(1) mismatches,
+(2) missing items,
+(3) suggested corrections,
+(4) a final “ready to send?” verdict with reasons.
+Raw docket + draft brief: [paste]</pre>
+ <button onclick="copyPrompt('prompt34','status34')">Copy Prompt</button>
+ <span id="status34" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Communication Super-Assistant" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Hackathon (Comms): Build a Reusable Prompt Set</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Communication Super-Assistant</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt35">Create a reusable prompt set (templates) for drafting:
+(1) notice letters,
+(2) hearing reminders,
+(3) jury instructions (general),
+(4) policy update emails.
+For each, provide:
+- a master prompt with placeholders,
+- a tone switch instruction (formal/neutral/plain),
+- a QA checklist.
+Court context and constraints: [paste]</pre>
+ <button onclick="copyPrompt('prompt35','status35')">Copy Prompt</button>
+ <span id="status35" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Communication Super-Assistant" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Hackathon (Comms): Tone + Consistency Enforcer</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Communication Super-Assistant</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt36">Review these 3 drafted messages for consistency.
+Ensure:
+(1) same terminology,
+(2) same tone level,
+(3) clear action steps,
+(4) no contradictions.
+Then return improved versions.
+Drafts: [paste]</pre>
+ <button onclick="copyPrompt('prompt36','status36')">Copy Prompt</button>
+ <span id="status36" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Case Snapshot" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Hackathon (Case Snapshot): Metadata + Timeline</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Case Snapshot</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt37">From this messy bundle (notes/emails/excerpts):
+(1) Extract key metadata (case #, parties, dates, next event, key contacts).
+(2) Build a timeline table (date | event | source | open questions).
+(3) Identify missing info and risks.
+(4) Produce a clean “Case Snapshot” with headings suitable for a case management system.
+Bundle: [paste]</pre>
+ <button onclick="copyPrompt('prompt37','status37')">Copy Prompt</button>
+ <span id="status37" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Case Snapshot" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Hackathon (Case Snapshot): Missing Info Hunt</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Case Snapshot</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt38">Scan this case snapshot and list:
+(1) what facts are still unknown,
+(2) what documents likely exist but are missing,
+(3) who to contact to fill each gap,
+(4) the top 5 questions to resolve today.
+Snapshot: [paste]</pre>
+ <button onclick="copyPrompt('prompt38','status38')">Copy Prompt</button>
+ <span id="status38" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Policy Toolkit" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Hackathon (Policy): Summary + FAQ + Checklist + Ambiguities</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Policy Toolkit</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt39">You are my policy analyzer. Using the policy text below:
+(1) Create a 1-page plain-language summary.
+(2) Create 12 staff FAQs with concise answers.
+(3) Create an operational checklist (step-by-step).
+(4) Create an ambiguity log: unclear section | risk | question to resolve.
+(5) Suggest 5 training points for staff.
+Policy text: [paste]</pre>
+ <button onclick="copyPrompt('prompt39','status39')">Copy Prompt</button>
+ <span id="status39" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Policy Toolkit" data-complexity="Quick">
+ <div class="card-header">
+  <h3>Hackathon (Policy): Plain-Language Rewrite</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Policy Toolkit</span><span class="badge badge-quick">Quick</span></div>
+ </div>
+ <pre id="prompt40">Rewrite this policy excerpt in plain language while preserving meaning.
+Add:
+(1) short headings,
+(2) numbered steps,
+(3) “Common mistakes” section.
+Excerpt: [paste]</pre>
+ <button onclick="copyPrompt('prompt40','status40')">Copy Prompt</button>
+ <span id="status40" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Workflow Automator" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Hackathon (Workflow): Monthly Report Super-Prompt</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Workflow Automator</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt41">Design a single “workflow super-prompt” that helps produce a monthly court activity report.
+It must:
+(1) ask me for the needed inputs (stats, time period, notable events),
+(2) output an executive summary,
+(3) produce a table of KPIs with definitions,
+(4) suggest 3 charts and steps to build them in Excel,
+(5) include a QA checklist.
+Court context: [paste]</pre>
+ <button onclick="copyPrompt('prompt41','status41')">Copy Prompt</button>
+ <span id="status41" class="copied"></span>
+</div>
+<div class="prompt-card" data-category="Module 3 — Hackathon: Workflow Automator" data-complexity="Complex">
+ <div class="card-header">
+  <h3>Hackathon (Workflow): Meeting Notes → Agenda + Minutes</h3>
+  <div class="badges"><span class="badge">Module 3 — Hackathon: Workflow Automator</span><span class="badge badge-complex">Complex</span></div>
+ </div>
+ <pre id="prompt42">Create a two-part workflow:
+PART A: From last meeting minutes, generate a timeboxed agenda with decision points.
+PART B: From raw bullet notes, generate minutes + action items (owner/due) + follow-up email.
+Provide both as reusable prompts with placeholders.
+Minutes/notes samples: [paste]</pre>
+ <button onclick="copyPrompt('prompt42','status42')">Copy Prompt</button>
+ <span id="status42" class="copied"></span>
+</div>
+
+ <footer>
+ Tip: Replace placeholders like <strong>[paste]</strong> with your content. If you are working with sensitive information, follow your organization’s privacy and data-handling policies.
+ </footer>
+ <script>
+ function copyPrompt(promptId, statusId) {
+ const text = document.getElementById(promptId).innerText;
+ navigator.clipboard.writeText(text);
+ const el = document.getElementById(statusId);
+ el.innerText = "Copied!";
+ setTimeout(() => { el.innerText = ""; }, 1500);
+ }
+ function filterPrompts() {
+ const q = (document.getElementById('searchBox').value || '').toLowerCase();
+ const cat = document.getElementById('categorySelect').value;
+ const comp = document.getElementById('complexitySelect').value;
+ const cards = Array.from(document.querySelectorAll('.prompt-card'));
+ let shown = 0;
+ cards.forEach(card => {
+  const c = card.getAttribute('data-category');
+  const k = card.getAttribute('data-complexity');
+  const text = card.innerText.toLowerCase();
+  const matchQ = (!q || text.includes(q));
+  const matchC = (cat === 'All' || c === cat);
+  const matchK = (comp === 'All' || k === comp);
+  const show = matchQ && matchC && matchK;
+  card.style.display = show ? '' : 'none';
+  if (show) shown += 1;
+ });
+ document.getElementById('countLabel').innerText = shown + " shown / " + cards.length + " total";
+ }
+ // Initialize count
+ filterPrompts();
+ </script>
+</body>
+</html>
