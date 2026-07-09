@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<!-- GitHub Pages-ready single-file site. Upload this file as index.html to your repository root. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top 20 AI Sales Prompts for Akkodis</title>
+  <meta name="description" content="A searchable, copy-ready library of 20 advanced AI prompts for Akkodis sales teams." />
+  <meta property="og:title" content="Top 20 AI Sales Prompts for Akkodis" />
+  <meta property="og:description" content="Search, filter, and copy advanced sales prompts for enterprise account growth, discovery, proposals, negotiation, staffing, and executive value storytelling." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0F172A" />
+  <style>
+    :root {
+      --navy:#0F172A; --slate:#334155; --teal:#14B8A6; --gold:#C89B3C; --ivory:#F8F6F1; --charcoal:#1F2937;
+      --line:#D8DEE9; --card:#FFFFFF; --soft:#F3F7FA; --text:#111827;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0; font-family: Inter, Arial, sans-serif; line-height:1.5; color:var(--charcoal);
+      background:linear-gradient(180deg, var(--navy) 0%, #111827 250px, var(--ivory) 250px, var(--ivory) 100%);
+    }
+    .wrap { max-width:1120px; margin:0 auto; padding:36px 18px 48px; }
+    .hero { color:#fff; padding:16px 0 28px; }
+    .kicker { display:inline-block; color:var(--teal); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:12px; margin-bottom:10px; }
+    h1 { margin:0 0 10px; font-size:clamp(32px,5vw,54px); line-height:1.03; letter-spacing:-.04em; }
+    .sub { max-width:880px; margin:0; color:#DDE7F0; font-size:17px; }
+    .toolbar {
+      display:flex; gap:12px; flex-wrap:wrap; align-items:end; margin:24px 0; padding:16px;
+      background:rgba(255,255,255,.97); border:1px solid var(--line); border-radius:16px;
+      box-shadow:0 14px 30px rgba(15,23,42,.12); position:sticky; top:0; z-index:10;
+    }
+    .toolbar label { font-size:13px; color:var(--slate); }
+    .toolbar input, .toolbar select { min-width:210px; padding:10px 12px; font-size:14px; border:1px solid #CBD5E1; border-radius:10px; background:#fff; }
+    .count { margin-left:auto; font-size:13px; color:var(--slate); padding-bottom:10px; }
+    .prompt-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; margin-bottom:18px; box-shadow:0 9px 22px rgba(15,23,42,.06); scroll-margin-top:110px; }
+    .prompt-card:target { outline:3px solid rgba(20,184,166,.45); }
+    .card-header { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }
+    .eyebrow { margin:0 0 4px; color:var(--gold); font-weight:800; font-size:12px; letter-spacing:.08em; text-transform:uppercase; }
+    h2 { margin:0 0 10px; color:var(--navy); font-size:21px; letter-spacing:-.01em; }
+    pre { white-space:pre-wrap; background:#F8FAFC; border:1px solid #E2E8F0; border-left:5px solid var(--teal); padding:14px; border-radius:10px; margin:10px 0 12px; font-size:14px; overflow-x:auto; color:var(--text); }
+    .badges { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .badge { display:inline-block; padding:4px 9px; border-radius:999px; font-size:12px; border:1px solid #CBD5E1; background:#fff; color:var(--slate); font-weight:700; white-space:nowrap; }
+    .badge-complex { background:#ECFEFF; border-color:#99F6E4; color:#0F766E; }
+    .actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    button { padding:9px 16px; font-size:14px; cursor:pointer; border-radius:999px; border:1px solid var(--navy); background:var(--navy); color:#fff; font-weight:800; }
+    button:hover { background:var(--teal); border-color:var(--teal); }
+    .anchor { color:var(--slate); font-size:14px; text-decoration:none; font-weight:700; }
+    .anchor:hover { color:var(--teal); text-decoration:underline; }
+    .copied { color:#15803D; font-size:13px; font-weight:800; }
+    .usage { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; margin-top:24px; }
+    .usage h2 { margin-top:0; }
+    footer { margin-top:24px; font-size:12px; color:var(--slate); }
+    @media (max-width:720px) {
+      .toolbar { position:static; } .toolbar > div { width:100%; } .toolbar input,.toolbar select { width:100%; min-width:0; } .count { margin-left:0; }
+      .card-header { flex-direction:column; } .badges { justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">Akkodis Sales Enablement</span>
+      <h1>Top 20 AI Sales Prompts</h1>
+      <p class="sub">A searchable, copy-ready prompt library for strategic account growth, discovery, executive conversations, staffing alignment, proposal strategy, negotiation, AI transformation, and boardroom-level value creation.</p>
+    </section>
+
+    <section class="toolbar" aria-label="Prompt filters">
+      <div>
+        <label for="searchBox"><strong>Search</strong></label><br />
+        <input id="searchBox" type="search" placeholder="Search titles or prompt text…" oninput="filterPrompts()" />
+      </div>
+      <div>
+        <label for="categorySelect"><strong>Sales Area</strong></label><br />
+        <select id="categorySelect" onchange="filterPrompts()">
+          <option value="All">All</option>
+          <option value="AI / Transformation">AI / Transformation</option>
+<option value="Account Strategy">Account Strategy</option>
+<option value="Competitive">Competitive</option>
+<option value="Discovery">Discovery</option>
+<option value="Executive">Executive</option>
+<option value="Follow-Up">Follow-Up</option>
+<option value="Meeting Prep">Meeting Prep</option>
+<option value="Negotiation">Negotiation</option>
+<option value="Proposal">Proposal</option>
+<option value="Prospecting">Prospecting</option>
+<option value="Qualification">Qualification</option>
+<option value="Staffing">Staffing</option>
+<option value="Stakeholders">Stakeholders</option>
+<option value="Territory">Territory</option>
+<option value="Win-Back">Win-Back</option>
+        </select>
+      </div>
+      <div>
+        <label for="complexitySelect"><strong>Complexity</strong></label><br />
+        <select id="complexitySelect" onchange="filterPrompts()">
+          <option value="All">All</option>
+          <option value="Complex">Complex</option>
+        </select>
+      </div>
+      <div class="count" id="countLabel"></div>
+    </section>
+
+    <article class="prompt-card" id="prompt-1" data-category="Account Strategy" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 01</p>
+      <h2>Strategic Account Expansion Plan</h2>
+    </div>
+    <div class="badges"><span class="badge">Account Strategy</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText1">Act as a senior enterprise sales strategist for Akkodis. Build a strategic account expansion plan for this client or prospect.
+
+Client/Prospect Name:
+Industry:
+Current Relationship Status:
+Known Services Already Sold:
+Known Stakeholders:
+Recent Business Changes:
+Competitors Present:
+Revenue Goal:
+Timeframe:
+
+Complete these steps:
+1. Analyze the client’s likely business priorities based on industry, market pressures, and transformation needs.
+2. Identify 5 likely pain points where Akkodis can create value through technology talent, engineering talent, consulting, managed services, digital transformation, AI, cybersecurity, cloud, data, or workforce solutions.
+3. Map 6 potential buyer personas: executive, technical, procurement, HR, operational, and transformation sponsor.
+4. For each persona, identify goals, fears, desired outcomes, language to use, and discovery questions.
+5. Recommend 4 expansion plays: short-term staffing, consulting/project delivery, managed services, and executive transformation.
+6. Create a 90-day account action plan with weekly activities.
+7. Draft an executive email to open a strategic business review.
+8. Draft a reconnect call script for the strongest stakeholder.
+9. Identify top 5 deal risks and how to overcome each.
+10. Finish with a prioritized next-best-action list.
+
+Make the output practical, specific, and executive-ready.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText1','status1')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-1" aria-label="Link to Strategic Account Expansion Plan">Link</a>
+    <span id="status1" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-2" data-category="Meeting Prep" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 02</p>
+      <h2>Executive Buyer Research Brief</h2>
+    </div>
+    <div class="badges"><span class="badge">Meeting Prep</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText2">Act as an enterprise sales intelligence analyst preparing me for a meeting with a senior executive prospect.
+
+Company:
+Executive Name:
+Executive Title:
+Industry:
+Meeting Objective:
+Known Business Initiative:
+Akkodis Solution Area I Want to Position:
+
+Build a complete executive buyer research brief:
+1. Executive Snapshot: likely responsibilities, priorities, pressures, internal stakeholders, and success measures.
+2. Company Context: industry trends, transformation initiatives, talent challenges, technology challenges, and operational pressures.
+3. Akkodis Relevance: 5 ways Akkodis could help this executive achieve measurable outcomes, mapped to business priorities.
+4. Discovery Strategy: 10 executive questions, 5 urgency questions, 5 budget/business-case questions, and 5 decision-process questions.
+5. Messaging: 60-second opening, 30-second value proposition, and 3 ways to explain Akkodis in business language.
+6. Meeting Risks: possible objections, concise responses, and ways to redirect toward outcomes.
+7. Close: ideal meeting close and 3 next-step options.
+
+Make this sharp, polished, and suitable for enterprise-level sales preparation.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText2','status2')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-2" aria-label="Link to Executive Buyer Research Brief">Link</a>
+    <span id="status2" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-3" data-category="Discovery" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 03</p>
+      <h2>High-Impact Discovery Call Builder</h2>
+    </div>
+    <div class="badges"><span class="badge">Discovery</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText3">Act as a world-class B2B sales discovery coach. Design a powerful discovery call for Akkodis.
+
+Prospect Company:
+Industry:
+Stakeholder Name:
+Stakeholder Title:
+Known Need or Trigger:
+Solution Area:
+Call Length:
+Desired Outcome:
+
+Create a complete discovery call plan:
+1. Pre-call hypothesis: likely problems, desired outcomes, and urgency drivers.
+2. Opening: professional opening, permission-based agenda, and Akkodis credibility statement.
+3. Discovery Flow: questions across business goals, current state, pain, talent gaps, technology constraints, timeline, financial impact, decision process, internal politics, and success metrics.
+4. For each question, explain why I ask it, what to listen for, and how to follow up.
+5. Create 5 power questions that can change the direction of the conversation.
+6. Create 5 questions that connect staffing needs to larger business transformation needs.
+7. Build a call recap template.
+8. Suggest next steps for strong interest, mild interest, and no clear urgency.
+
+Make the output practical, consultative, and suitable for complex enterprise sales.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText3','status3')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-3" aria-label="Link to High-Impact Discovery Call Builder">Link</a>
+    <span id="status3" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-4" data-category="Discovery" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 04</p>
+      <h2>Client Pain-to-Solution Translator</h2>
+    </div>
+    <div class="badges"><span class="badge">Discovery</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText4">Act as a consultative sales strategist for Akkodis. Translate a client pain point into business impact, solution strategy, and sales messaging.
+
+Client Pain Point:
+Industry:
+Stakeholder Title:
+Current Situation:
+Desired Business Outcome:
+Known Constraints:
+
+Complete these steps:
+1. Restate the pain point in business language.
+2. Identify likely root causes.
+3. Explain operational, financial, talent, and strategic impact if unresolved.
+4. Map the pain to Akkodis solution areas: IT staffing, engineering talent, digital transformation, cloud, cybersecurity, data/analytics, AI enablement, managed services, and consulting/project delivery.
+5. Recommend the top 3 best-fit solution paths.
+6. For each path, include business outcome, stakeholders, discovery questions, objections, proof points, and next step.
+7. Write value propositions for a technical buyer, business buyer, procurement buyer, and executive sponsor.
+8. Create a short live-meeting talk track.
+9. Draft a follow-up email positioning Akkodis as a strategic partner, not a transactional vendor.
+
+Make this consultative, commercially smart, and focused on measurable business value.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText4','status4')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-4" aria-label="Link to Client Pain-to-Solution Translator">Link</a>
+    <span id="status4" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-5" data-category="Competitive" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 05</p>
+      <h2>Competitive Displacement Strategy</h2>
+    </div>
+    <div class="badges"><span class="badge">Competitive</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText5">Act as a senior sales strategist helping Akkodis win business from an incumbent competitor.
+
+Target Account:
+Industry:
+Current Competitor or Incumbent Vendor:
+Known Issues with Current Vendor:
+Akkodis Solution Area:
+Stakeholders Involved:
+Deal Size or Revenue Goal:
+Timeline:
+
+Build a competitive displacement strategy:
+1. Analyze why the client may continue using the incumbent despite dissatisfaction.
+2. Identify 5 possible weaknesses in the incumbent relationship.
+3. Identify 5 ways Akkodis can differentiate without attacking the competitor directly.
+4. Create a stakeholder map showing who benefits from switching, who resists, who controls budget, who influences risk, and who owns implementation success.
+5. Create discovery questions that reveal dissatisfaction with the current provider.
+6. Create a switching-value framework: reduced risk, improved quality, faster delivery, better talent access, and stronger partnership.
+7. Draft a talk track for “We already have a vendor.”
+8. Draft responses to objections about satisfaction, risk, price, approved vendors, and lack of time.
+9. Recommend a low-risk entry point for Akkodis to prove value.
+10. Build a 60-day action plan from outsider to trusted partner.
+
+Make this sophisticated, ethical, and focused on business outcomes.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText5','status5')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-5" aria-label="Link to Competitive Displacement Strategy">Link</a>
+    <span id="status5" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-6" data-category="Prospecting" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 06</p>
+      <h2>Warm Re-Engagement Email Campaign</h2>
+    </div>
+    <div class="badges"><span class="badge">Prospecting</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText6">Act as a senior sales copywriter and enterprise account strategist for Akkodis. Create a warm re-engagement campaign for a past client or quiet account.
+
+Client Name:
+Industry:
+Previous Work Done:
+Last Interaction Date:
+Known Stakeholder:
+Reason Relationship Went Quiet:
+Current Trigger or Reason to Reconnect:
+Desired Meeting Outcome:
+
+Create a 5-touch campaign:
+1. Touch 1: executive value email.
+2. Touch 2: insight-based follow-up.
+3. Touch 3: problem-focused email.
+4. Touch 4: low-pressure voicemail script.
+5. Touch 5: breakup email that preserves the relationship.
+
+For each touch include subject line, message body, timing, personalization angle, desired reply, and alternate casual version.
+
+Also include:
+6. LinkedIn message version.
+7. Phone call opening script.
+8. Meeting agenda if they reconnect.
+9. 10 business triggers to look for before outreach.
+10. Recommendation for which Akkodis service area to lead with and why.
+
+Make the tone professional, concise, helpful, and not pushy.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText6','status6')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-6" aria-label="Link to Warm Re-Engagement Email Campaign">Link</a>
+    <span id="status6" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-7" data-category="Qualification" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 07</p>
+      <h2>Enterprise Opportunity Qualification Engine</h2>
+    </div>
+    <div class="badges"><span class="badge">Qualification</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText7">Act as a complex B2B opportunity qualification advisor for Akkodis. Evaluate whether this sales opportunity is real, winnable, and worth prioritizing.
+
+Opportunity Name:
+Client:
+Industry:
+Need Described:
+Stakeholders Known:
+Budget Information:
+Timeline:
+Competitors:
+Current Vendor:
+Akkodis Solution Area:
+Estimated Revenue:
+Relationship Strength:
+Known Risks:
+
+Complete this analysis:
+1. Score from 1–10 across business pain, urgency, budget clarity, decision access, competitive position, Akkodis strategic fit, revenue potential, delivery feasibility, relationship strength, and expansion potential.
+2. Explain each score clearly.
+3. Identify missing information required before forecasting.
+4. Classify as pursue aggressively, develop further, nurture, or disqualify.
+5. Build a MEDDICC-style question list: metrics, economic buyer, decision criteria, decision process, identify pain, champion, and competition.
+6. Identify hidden risks.
+7. Recommend the next 3 meetings to secure.
+8. Create a strategy to reach the economic buyer.
+9. Draft an internal opportunity summary for leadership.
+10. Draft a client-facing next-step email.
+
+Make the output brutally honest, strategic, and practical.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText7','status7')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-7" aria-label="Link to Enterprise Opportunity Qualification Engine">Link</a>
+    <span id="status7" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-8" data-category="Follow-Up" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 08</p>
+      <h2>Meeting Debrief and Next-Step Generator</h2>
+    </div>
+    <div class="badges"><span class="badge">Follow-Up</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText8">Act as a sales chief of staff for Akkodis. I completed a client meeting and need a strategic debrief.
+
+Meeting Notes:
+Client:
+Attendees:
+Stated Needs:
+Unstated Concerns:
+Objections:
+Timeline:
+Budget Signals:
+Competitors Mentioned:
+Next Step Discussed:
+My Gut Feel:
+
+Complete these steps:
+1. Summarize the meeting in 5 executive bullet points.
+2. Identify strongest buying signals.
+3. Identify weakest or most concerning signals.
+4. Infer the likely decision stage.
+5. Identify what I still do not know.
+6. Categorize opportunity as strong, moderate, weak, or at risk.
+7. Recommend the next best action.
+8. Draft a polished follow-up email with appreciation, what I heard, outcomes discussed, suggested next step, and clear CTA.
+9. Draft an internal CRM note.
+10. Draft an internal manager update.
+11. Identify 3 ways to expand beyond the immediate need.
+12. Suggest 5 follow-up questions for the next meeting.
+
+Make the output concise, accurate, and sales-leadership ready.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText8','status8')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-8" aria-label="Link to Meeting Debrief and Next-Step Generator">Link</a>
+    <span id="status8" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-9" data-category="Negotiation" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 09</p>
+      <h2>Procurement Objection Response Builder</h2>
+    </div>
+    <div class="badges"><span class="badge">Negotiation</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText9">Act as a procurement negotiation advisor for Akkodis sales professionals. Help me prepare for pricing, vendor approval, and procurement objections.
+
+Client:
+Industry:
+Opportunity Type:
+Estimated Deal Size:
+Procurement Concern:
+Known Competitors:
+Current Vendor Situation:
+Akkodis Differentiators:
+Client’s Stated Priorities:
+
+Build a procurement response strategy:
+1. Identify what procurement is likely optimizing for: cost, risk, consolidation, compliance, speed, contract simplicity, and internal stakeholder satisfaction.
+2. Translate Akkodis value into procurement-friendly language.
+3. Create a response to the specific procurement concern.
+4. Provide 5 negotiation principles to follow.
+5. Provide 5 things to avoid saying.
+6. Build objection responses for rate, three bids, approved vendor status, supplier consolidation, price matching, payment terms, and MSP/VMS requirements.
+7. Recommend safe, risky, and dangerous concessions.
+8. Suggest value-added alternatives to discounting.
+9. Draft a procurement follow-up email.
+10. Draft a business sponsor email that helps them advocate internally for Akkodis.
+
+Keep the tone professional, calm, commercially disciplined, and value-focused.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText9','status9')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-9" aria-label="Link to Procurement Objection Response Builder">Link</a>
+    <span id="status9" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-10" data-category="AI / Transformation" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 10</p>
+      <h2>AI Transformation Sales Angle Finder</h2>
+    </div>
+    <div class="badges"><span class="badge">AI / Transformation</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText10">Act as a strategic sales advisor specializing in AI transformation, workforce readiness, and digital modernization for Akkodis.
+
+Target Company:
+Industry:
+Stakeholder Title:
+Known Technology Environment:
+Known Business Initiative:
+Current Talent Challenges:
+Current Process Challenges:
+Desired Sales Outcome:
+
+Complete these steps:
+1. Identify 7 ways AI may be affecting operations, workforce, technology stack, customer experience, or competitive position.
+2. Identify 5 risks if the company does not modernize talent and technology capabilities.
+3. Map Akkodis value to AI talent, data readiness, cloud platforms, automation, cybersecurity, change management, engineering/product innovation, and managed services.
+4. Create 10 executive-level AI discovery questions.
+5. Create 10 technical discovery questions.
+6. Create 5 workforce readiness questions.
+7. Develop a strategic point of view for a client conversation.
+8. Write a 90-second talk track positioning Akkodis as an AI transformation partner.
+9. Recommend a low-risk pilot or workshop offer.
+10. Draft an email inviting discussion about AI readiness and workforce capability gaps.
+
+Make this sharp, forward-looking, and grounded in business value rather than hype.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText10','status10')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-10" aria-label="Link to AI Transformation Sales Angle Finder">Link</a>
+    <span id="status10" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-11" data-category="Staffing" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 11</p>
+      <h2>Job Order Intake Optimizer</h2>
+    </div>
+    <div class="badges"><span class="badge">Staffing</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText11">Act as a high-performance staffing sales and recruiting strategist for Akkodis. Turn a client job order into a stronger, more fillable, more profitable opportunity.
+
+Client:
+Role Title:
+Industry:
+Location:
+Work Arrangement:
+Required Skills:
+Nice-to-Have Skills:
+Pay Rate or Bill Rate:
+Timeline:
+Number of Openings:
+Reason for Opening:
+Hiring Manager:
+Competition:
+Known Challenges:
+
+Complete these steps:
+1. Analyze job order quality.
+2. Identify missing or unclear information.
+3. Score 1–10 for fillability, profitability, urgency, client commitment, skill availability, rate competitiveness, relationship strength, and likelihood of closure.
+4. Recommend what to clarify with the hiring manager.
+5. Create 15 intake questions to improve recruiting accuracy.
+6. Identify red flags.
+7. Suggest how to reset expectations if requirements are unrealistic.
+8. Recommend candidate selling points.
+9. Recommend client selling points recruiters can use with candidates.
+10. Draft a hiring manager follow-up email confirming intake details.
+11. Draft an internal recruiter handoff note.
+12. Suggest 3 ways to expand this role into additional opportunities.
+
+Make the output practical for both sales and recruiting teams.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText11','status11')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-11" aria-label="Link to Job Order Intake Optimizer">Link</a>
+    <span id="status11" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-12" data-category="Stakeholders" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 12</p>
+      <h2>Stakeholder Map and Influence Strategy</h2>
+    </div>
+    <div class="badges"><span class="badge">Stakeholders</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText12">Act as an enterprise stakeholder strategy advisor for Akkodis. Map the people, power, influence, politics, and buying dynamics inside an account.
+
+Account Name:
+Industry:
+Known Stakeholders:
+Current Opportunity:
+Decision Timeline:
+Known Champion:
+Known Blocker:
+Economic Buyer:
+Procurement Contact:
+Technical Evaluators:
+Business Sponsor:
+
+Complete these steps:
+1. Create a stakeholder map: economic buyer, champion, influencer, technical evaluator, procurement gatekeeper, end user, blocker, and executive sponsor.
+2. For each stakeholder, identify motivations, concerns, influence level, decision power, relationship strength, messaging angle, and best next action.
+3. Identify gaps in stakeholder coverage.
+4. Recommend how to strengthen the champion.
+5. Recommend how to neutralize or better understand blockers.
+6. Create questions to ask my champion about internal politics.
+7. Create an influence plan to reach the economic buyer.
+8. Draft a message requesting a broader stakeholder meeting.
+9. Draft an internal account strategy summary.
+10. Recommend the next 5 relationship-building actions.
+
+Make this strategic, realistic, and useful for complex buying committees.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText12','status12')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-12" aria-label="Link to Stakeholder Map and Influence Strategy">Link</a>
+    <span id="status12" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-13" data-category="Account Strategy" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 13</p>
+      <h2>Client Business Review Builder</h2>
+    </div>
+    <div class="badges"><span class="badge">Account Strategy</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText13">Act as a strategic account manager for Akkodis. Build a client business review that strengthens the relationship and creates expansion opportunities.
+
+Client:
+Industry:
+Services Provided:
+Performance Data Available:
+Open Roles or Projects:
+Client Goals:
+Known Challenges:
+Stakeholders Attending:
+Expansion Areas of Interest:
+Timeframe:
+
+Create a business review structure:
+1. Executive summary.
+2. Relationship history.
+3. Current performance snapshot.
+4. Key wins and outcomes.
+5. Challenges and improvement opportunities.
+6. Market insights relevant to their industry and workforce.
+7. Talent, technology, and engineering trends they should watch.
+8. Recommendations for the next 90 days.
+9. Expansion opportunities across roles, departments, project-based work, managed services, digital transformation, AI, data, cloud, cybersecurity, and engineering.
+10. Suggested slides for a short presentation.
+11. Talk track for each slide.
+12. Discovery questions to ask during the review.
+13. Post-review follow-up email.
+14. Likely objections and responses.
+
+Make this feel like a strategic partnership review, not a vendor check-in.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText13','status13')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-13" aria-label="Link to Client Business Review Builder">Link</a>
+    <span id="status13" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-14" data-category="Prospecting" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 14</p>
+      <h2>Vertical-Specific Sales Play Creator</h2>
+    </div>
+    <div class="badges"><span class="badge">Prospecting</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText14">Act as a vertical sales strategist for Akkodis. Build a sales play for this industry.
+
+Industry:
+Target Buyer Titles:
+Common Services to Position:
+Geography:
+Revenue Goal:
+Current Market Conditions:
+Known Akkodis Strengths:
+Competitive Landscape:
+
+Create a complete vertical sales play:
+1. Industry overview.
+2. Top 10 business pressures facing companies in this vertical.
+3. Top 10 talent, technology, engineering, or digital transformation challenges.
+4. Best-fit Akkodis solution areas.
+5. Buyer persona breakdown for C-suite, technology leader, engineering leader, HR/talent leader, operations leader, and procurement leader.
+6. For each persona, include what they care about, language that resonates, pain points to probe, objections to expect, and Akkodis value to emphasize.
+7. Create a prospecting message sequence for this vertical.
+8. Create a discovery question bank.
+9. Create a meeting opening talk track.
+10. Create 5 trigger events indicating buying opportunity.
+11. Create 5 account expansion plays.
+12. Recommend KPIs to track success.
+
+Make this field-ready, specific, and useful for sales teams.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText14','status14')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-14" aria-label="Link to Vertical-Specific Sales Play Creator">Link</a>
+    <span id="status14" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-15" data-category="Proposal" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 15</p>
+      <h2>Strategic Proposal Differentiator</h2>
+    </div>
+    <div class="badges"><span class="badge">Proposal</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText15">Act as a senior proposal strategist for Akkodis. Transform a standard proposal into a compelling business case.
+
+Client:
+Industry:
+Opportunity:
+Client Pain:
+Current State:
+Desired Future State:
+Proposed Akkodis Solution:
+Competitors:
+Decision Criteria:
+Budget:
+Timeline:
+Stakeholders:
+
+Complete these steps:
+1. Rewrite the opportunity in executive business language.
+2. Identify likely decision criteria.
+3. Create compelling “why change,” “why now,” and “why Akkodis” sections.
+4. Map Akkodis solution components to measurable business outcomes.
+5. Identify proof points, case study themes, or credibility signals to include.
+6. Create an ROI narrative even if exact numbers are not available.
+7. Create a risk-reduction narrative.
+8. Recommend proposal structure: executive summary, current-state challenge, business impact, solution, implementation, governance, success metrics, investment, and next steps.
+9. Draft the executive summary.
+10. Draft the closing section.
+11. Identify weak parts of the proposal and how to strengthen them.
+12. Create 10 questions to answer before sending the final proposal.
+
+Make the output polished, persuasive, and business-outcome focused.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText15','status15')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-15" aria-label="Link to Strategic Proposal Differentiator">Link</a>
+    <span id="status15" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-16" data-category="Win-Back" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 16</p>
+      <h2>Lost Deal Autopsy and Win-Back Plan</h2>
+    </div>
+    <div class="badges"><span class="badge">Win-Back</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText16">Act as a sales performance analyst and account recovery strategist for Akkodis. Analyze a lost deal and create a win-back plan.
+
+Account:
+Opportunity:
+Deal Size:
+Solution Area:
+Competitor Selected:
+Reason Given for Loss:
+Real Reason Suspected:
+Stakeholders Involved:
+Sales Process Timeline:
+Where We Lost Momentum:
+Relationship Status:
+Potential Future Opportunity:
+
+Complete these steps:
+1. Summarize likely causes of the loss.
+2. Separate stated reasons from possible real reasons.
+3. Identify internal sales process gaps.
+4. Identify external account dynamics that may have hurt us.
+5. Score the loss across relationship access, pain alignment, decision-maker access, value differentiation, timing, price competitiveness, proposal quality, champion strength, and procurement strategy.
+6. Identify lessons learned.
+7. Create a respectful client feedback email.
+8. Create a 6-month win-back nurture strategy.
+9. Recommend trigger events that may reopen the opportunity.
+10. Create a reconnect message for 90 days later.
+11. Suggest a low-risk way to earn another chance.
+12. Create an internal leadership summary.
+
+Be direct, constructive, and focused on improving future win rates.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText16','status16')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-16" aria-label="Link to Lost Deal Autopsy and Win-Back Plan">Link</a>
+    <span id="status16" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-17" data-category="Territory" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 17</p>
+      <h2>Territory Prioritization and Prospecting Engine</h2>
+    </div>
+    <div class="badges"><span class="badge">Territory</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText17">Act as a territory strategist for Akkodis. Prioritize accounts and build a prospecting plan.
+
+Territory:
+Industries Covered:
+Target Account List:
+Current Clients:
+Dormant Accounts:
+Net-New Prospects:
+Revenue Goal:
+Solution Focus:
+Timeframe:
+Known Constraints:
+
+Complete these steps:
+1. Segment accounts into protect, grow, reactivate, pursue, nurture, and deprioritize.
+2. Create criteria for each segment.
+3. Prioritize the top 20 accounts by revenue potential, strategic fit, buying triggers, relationship strength, urgency, competitive presence, and expansion potential.
+4. Recommend a weekly territory operating rhythm.
+5. Create a prospecting plan by segment.
+6. Create messaging angles for each segment.
+7. Create a 30-day activity plan.
+8. Create a 60-day pipeline creation plan.
+9. Create a 90-day revenue acceleration plan.
+10. Recommend KPIs to track.
+11. Identify top risks in the territory plan.
+12. Recommend how to balance current clients with net-new business.
+
+Make this practical, disciplined, and focused on pipeline growth.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText17','status17')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-17" aria-label="Link to Territory Prioritization and Prospecting Engine">Link</a>
+    <span id="status17" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-18" data-category="Executive" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 18</p>
+      <h2>C-Suite Conversation Planner</h2>
+    </div>
+    <div class="badges"><span class="badge">Executive</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText18">Act as an executive communication coach for Akkodis sales professionals. Prepare me for a C-suite conversation.
+
+Executive Title:
+Company:
+Industry:
+Meeting Context:
+Known Business Challenge:
+Akkodis Solution Area:
+Relationship Status:
+Desired Outcome:
+
+Build a complete executive conversation plan:
+1. Identify what this executive likely cares about most.
+2. Translate Akkodis capabilities into executive-level outcomes.
+3. Create a concise point of view about their business challenge.
+4. Create a 3-minute executive opening.
+5. Create 10 strategic discovery questions.
+6. Create 5 insight statements I can use to elevate the conversation.
+7. Create 5 ways to avoid sounding like a vendor.
+8. Create responses to objections: “We already have a team,” “Not a priority,” “Send information,” “We’re focused on cost reduction,” and “Talk to my team.”
+9. Create a business-case framing model.
+10. Create a strong meeting close.
+11. Draft an executive-level follow-up email.
+12. Recommend how to earn the next conversation.
+
+Make this concise, confident, strategic, and outcome-oriented.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText18','status18')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-18" aria-label="Link to C-Suite Conversation Planner">Link</a>
+    <span id="status18" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-19" data-category="Staffing" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 19</p>
+      <h2>Recruiter-Sales Alignment Prompt</h2>
+    </div>
+    <div class="badges"><span class="badge">Staffing</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText19">Act as a sales and recruiting alignment coach for Akkodis. Improve collaboration between sales and recruiting on a live opportunity.
+
+Client:
+Role or Project:
+Industry:
+Hiring Manager:
+Recruiting Challenges:
+Sales Commitments Made:
+Client Expectations:
+Candidate Market Reality:
+Timeline:
+Rate or Budget:
+Current Pipeline Status:
+
+Complete these steps:
+1. Summarize the opportunity in plain language.
+2. Identify where sales and recruiting may be misaligned.
+3. Compare client expectations with market reality.
+4. Create a shared success definition.
+5. Recommend how to reset expectations internally if needed.
+6. Recommend how to reset expectations with the client if needed.
+7. Create a recruiter briefing document with role summary, must-have skills, flexible requirements, candidate selling points, client selling points, screening priorities, red flags, and submission guidelines.
+8. Create a sales update message to the client.
+9. Create 10 questions sales should ask recruiting.
+10. Create 10 questions recruiting should ask sales.
+11. Create a daily or weekly communication rhythm.
+12. Recommend how to avoid overpromising.
+
+Make this collaborative, practical, and focused on speed, quality, and client trust.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText19','status19')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-19" aria-label="Link to Recruiter-Sales Alignment Prompt">Link</a>
+    <span id="status19" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article><article class="prompt-card" id="prompt-20" data-category="Executive" data-complexity="Complex">
+  <div class="card-header">
+    <div>
+      <p class="eyebrow">Prompt 20</p>
+      <h2>Boardroom-Level Value Story Builder</h2>
+    </div>
+    <div class="badges"><span class="badge">Executive</span><span class="badge badge-complex">Complex</span></div>
+  </div>
+  <pre id="promptText20">Act as a boardroom-level sales messaging strategist for Akkodis. Turn a sales opportunity into a compelling transformation value story.
+
+Client:
+Industry:
+Current Challenge:
+Strategic Initiative:
+Akkodis Solution Area:
+Economic Buyer:
+Technical Buyer:
+Business Sponsor:
+Current State:
+Desired Future State:
+Timeline:
+Budget:
+Known Risks:
+Competitive Alternatives:
+
+Create a powerful value story:
+1. Strategic Context: what is changing in the market, why it matters now, and what leadership is trying to accomplish.
+2. Current-State Problem: operational friction, talent gaps, technology constraints, risk exposure, and cost/productivity impact.
+3. Case for Change: what happens if they do nothing, what they gain if they act, and why timing matters.
+4. Akkodis Value Connection: how Akkodis closes capability gaps, reduces execution risk, accelerates outcomes, and supports talent/technology/transformation needs.
+5. Future-State Vision: success in 30, 60, 90 days; success in 6–12 months; and stakeholder benefits.
+6. Commercial Narrative: why this is investment, not expense; metrics that may improve; risks reduced; capabilities gained.
+7. Create a 90-second executive talk track, 1-page value narrative, proposal opening paragraph, CFO-friendly business case, technical buyer version, procurement-friendly version, 10 discovery questions, and 5 proof points to gather.
+
+Make this powerful, polished, and suitable for a high-stakes enterprise sales pursuit.</pre>
+  <div class="actions">
+    <button type="button" onclick="copyPrompt('promptText20','status20')">Copy Prompt</button>
+    <a class="anchor" href="#prompt-20" aria-label="Link to Boardroom-Level Value Story Builder">Link</a>
+    <span id="status20" class="copied" role="status" aria-live="polite"></span>
+  </div>
+</article>
+
+    <section class="usage">
+      <h2>Recommended Sales Workflow</h2>
+      <ol>
+        <li>Use <strong>Executive Buyer Research Brief</strong> before the first executive meeting.</li>
+        <li>Use <strong>High-Impact Discovery Call Builder</strong> to shape discovery.</li>
+        <li>Use <strong>Meeting Debrief and Next-Step Generator</strong> immediately afterward.</li>
+        <li>Use <strong>Enterprise Opportunity Qualification Engine</strong> before forecasting.</li>
+        <li>Use <strong>Strategic Proposal Differentiator</strong> before sending a proposal.</li>
+        <li>Use <strong>Boardroom-Level Value Story Builder</strong> before senior leadership or procurement engagement.</li>
+      </ol>
+    </section>
+
+    <footer>
+      Tip: Replace placeholders with account-specific context. For best results, include industry, stakeholders, known pain, timeline, current vendor, and desired business outcome.
+    </footer>
+  </main>
+
+  <script>
+    function copyPrompt(promptId, statusId) {
+      const text = document.getElementById(promptId).innerText;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text);
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+      }
+      const el = document.getElementById(statusId);
+      el.innerText = 'Copied!';
+      setTimeout(() => { el.innerText = ''; }, 1500);
+    }
+
+    function filterPrompts() {
+      const q = (document.getElementById('searchBox').value || '').toLowerCase();
+      const cat = document.getElementById('categorySelect').value;
+      const comp = document.getElementById('complexitySelect').value;
+      const cards = Array.from(document.querySelectorAll('.prompt-card'));
+      let shown = 0;
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardComplexity = card.getAttribute('data-complexity');
+        const cardText = card.innerText.toLowerCase();
+        const show = (!q || cardText.includes(q)) && (cat === 'All' || cardCategory === cat) && (comp === 'All' || cardComplexity === comp);
+        card.style.display = show ? '' : 'none';
+        if (show) shown += 1;
+      });
+      document.getElementById('countLabel').innerText = shown + ' shown / ' + cards.length + ' total';
+    }
+    filterPrompts();
+  </script>
+</body>
+</html>
