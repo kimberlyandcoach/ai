@@ -67,7 +67,11 @@
     </section>
 
     <section class="toolbar" aria-label="Prompt filters">
-       <div>
+      <div>
+        <label for="searchBox"><strong>Search</strong></label><br />
+        <input id="searchBox" type="search" placeholder="Search titles or prompt text…" oninput="filterPrompts()" />
+      </div>
+      <div>
         <label for="categorySelect"><strong>Sales Area</strong></label><br />
         <select id="categorySelect" onchange="filterPrompts()">
           <option value="All">All</option>
@@ -88,7 +92,14 @@
 <option value="Win-Back">Win-Back</option>
         </select>
       </div>
-           <div class="count" id="countLabel"></div>
+      <div>
+        <label for="complexitySelect"><strong>Complexity</strong></label><br />
+        <select id="complexitySelect" onchange="filterPrompts()">
+          <option value="All">All</option>
+          <option value="Complex">Complex</option>
+        </select>
+      </div>
+      <div class="count" id="countLabel"></div>
     </section>
 
     <article class="prompt-card" id="prompt-1" data-category="Account Strategy" data-complexity="Complex">
